@@ -1,0 +1,244 @@
+[
+  {
+    "partInfo" : null,
+    "isFirmwareUpdateMandatory" : false,
+    "productType" : {
+      "type" : "b389",
+      "productInformation" : {
+        "manufacturerName" : "Apple",
+        "modelName" : "",
+        "productIdentifier" : 21760,
+        "vendorIdentifier" : 76,
+        "antennaPower" : 4
+      }
+    },
+    "safeLocations" : [
+      {
+        "type" : 1,
+        "approvalState" : 1,
+        "name" : "Home",
+        "identifier" : "11C9B018-D822-4EBA-9F19-838636E22FCB",
+        "location" : {
+          "positionType" : "safeLocation",
+          "verticalAccuracy" : 80,
+          "longitude" : 175.29577243208234,
+          "floorLevel" : -1,
+          "isInaccurate" : false,
+          "isOld" : true,
+          "horizontalAccuracy" : 80,
+          "latitude" : -37.801672869656905,
+          "timeStamp" : 1683666947131,
+          "altitude" : 0,
+          "locationFinished" : true
+        },
+        "address" : {
+          "subAdministrativeArea" : "Hamilton City",
+          "label" : "23B Brookfield St",
+          "streetAddress" : "23B",
+          "countryCode" : "NZ",
+          "stateCode" : null,
+          "administrativeArea" : "Waikato",
+          "streetName" : "Brookfield St",
+          "formattedAddressLines" : [
+            "23B Brookfield St",
+            "Hamilton East",
+            "Hamilton 3216",
+            "New Zealand"
+          ],
+          "mapItemFullAddress" : "23B Brookfield St, Hamilton East, Hamilton 3216",
+          "fullThroroughfare" : "23B Brookfield St",
+          "areaOfInterest" : [
+            "North Island"
+          ],
+          "locality" : "Hamilton",
+          "country" : "New Zealand"
+        }
+      }
+    ],
+    "owner" : "owner@localhost",
+    "batteryStatus" : 1,
+    "serialNumber" : "HGDFVXZZP0GV",
+    "lostModeMetadata" : null,
+    "capabilities" : 734,
+    "identifier" : "20100704-6C60-4F9B-BB41-DFDBC654C6DA",
+    "address" : {
+      "subAdministrativeArea" : "Hamilton City",
+      "label" : "23B Brookfield St",
+      "streetAddress" : "23B",
+      "countryCode" : "NZ",
+      "stateCode" : null,
+      "administrativeArea" : "Waikato",
+      "streetName" : "Brookfield St",
+      "formattedAddressLines" : [
+        "23B Brookfield St",
+        "Hamilton East",
+        "Hamilton 3216",
+        "New Zealand"
+      ],
+      "mapItemFullAddress" : "23B Brookfield St, Hamilton East, Hamilton 3216",
+      "fullThroroughfare" : "23B Brookfield St",
+      "areaOfInterest" : [
+        "North Island"
+      ],
+      "locality" : "Hamilton",
+      "country" : "New Zealand"
+    },
+    "location" : {
+      "positionType" : "crowdsourced",
+      "verticalAccuracy" : -1,
+      "longitude" : 175.29584023641735,
+      "floorLevel" : -1,
+      "isInaccurate" : false,
+      "isOld" : false,
+      "horizontalAccuracy" : 28.842722689970863,
+      "latitude" : -37.801710908108205,
+      "timeStamp" : 1683667263000,
+      "altitude" : -1,
+      "locationFinished" : true
+    },
+    "productIdentifier" : "DE3DE9FC-A990-4391-B22B-3B1DF35934FA",
+    "isAppleAudioAccessory" : false,
+    "crowdSourcedLocation" : {
+      "positionType" : "crowdsourced",
+      "verticalAccuracy" : -1,
+      "longitude" : 175.29584023641735,
+      "floorLevel" : -1,
+      "isInaccurate" : false,
+      "isOld" : false,
+      "horizontalAccuracy" : 28.842722689970863,
+      "latitude" : -37.801710908108205,
+      "timeStamp" : 1683667263000,
+      "altitude" : -1,
+      "locationFinished" : true
+    },
+    "groupIdentifier" : null,
+    "role" : {
+      "name" : "Bike",
+      "emoji" : "🚲",
+      "identifier" : 2
+    },
+    "systemVersion" : "2.0.36",
+    "name" : "Ant’s Gravel Bike"
+  },
+  {
+    "partInfo" : null,
+    "isFirmwareUpdateMandatory" : false,
+    "productType" : {
+      "type" : "b389",
+      "productInformation" : {
+        "manufacturerName" : "Apple",
+        "modelName" : "",
+        "productIdentifier" : 21760,
+        "vendorIdentifier" : 76,
+        "antennaPower" : 4
+      }
+    },
+    "safeLocations" : [
+      {
+        "type" : 1,
+        "approvalState" : 1,
+        "name" : "Home",
+        "identifier" : "11C9B018-D822-4EBA-9F19-838636E22FCB",
+        "location" : {
+          "positionType" : "safeLocation",
+          "verticalAccuracy" : 80,
+          "longitude" : 175.29577243208234,
+          "floorLevel" : -1,
+          "isInaccurate" : false,
+          "isOld" : true,
+          "horizontalAccuracy" : 80,
+          "latitude" : -37.801672869656905,
+          "timeStamp" : 1683666947131,
+          "altitude" : 0,
+          "locationFinished" : true
+        },
+        "address" : {
+          "subAdministrativeArea" : "Hamilton City",
+          "label" : "23B Brookfield St",
+          "streetAddress" : "23B",
+          "countryCode" : "NZ",
+          "stateCode" : null,
+          "administrativeArea" : "Waikato",
+          "streetName" : "Brookfield St",
+          "formattedAddressLines" : [
+            "23B Brookfield St",
+            "Hamilton East",
+            "Hamilton 3216",
+            "New Zealand"
+          ],
+          "mapItemFullAddress" : "23B Brookfield St, Hamilton East, Hamilton 3216",
+          "fullThroroughfare" : "23B Brookfield St",
+          "areaOfInterest" : [
+            "North Island"
+          ],
+          "locality" : "Hamilton",
+          "country" : "New Zealand"
+        }
+      }
+    ],
+    "owner" : "owner@localhost",
+    "batteryStatus" : 1,
+    "serialNumber" : "HGDFVTK9P0GV",
+    "lostModeMetadata" : null,
+    "capabilities" : 734,
+    "identifier" : "914CD35B-1C93-47D0-9A4C-BBC9B4C5B42C",
+    "address" : {
+      "subAdministrativeArea" : "Hamilton City",
+      "label" : "23B Brookfield St",
+      "streetAddress" : "23B",
+      "countryCode" : "NZ",
+      "stateCode" : null,
+      "administrativeArea" : "Waikato",
+      "streetName" : "Brookfield St",
+      "formattedAddressLines" : [
+        "23B Brookfield St",
+        "Hamilton East",
+        "Hamilton 3216",
+        "New Zealand"
+      ],
+      "mapItemFullAddress" : "23B Brookfield St, Hamilton East, Hamilton 3216",
+      "fullThroroughfare" : "23B Brookfield St",
+      "areaOfInterest" : [
+        "North Island"
+      ],
+      "locality" : "Hamilton",
+      "country" : "New Zealand"
+    },
+    "location" : {
+      "positionType" : "ownedDeviceLocation",
+      "verticalAccuracy" : -1,
+      "longitude" : 175.29578989156406,
+      "floorLevel" : -1,
+      "isInaccurate" : false,
+      "isOld" : false,
+      "horizontalAccuracy" : 28.060314702721151,
+      "latitude" : -37.801681589381111,
+      "timeStamp" : 1683667680000,
+      "altitude" : -1,
+      "locationFinished" : true
+    },
+    "productIdentifier" : "DE3DE9FC-A990-4391-B22B-3B1DF35934FA",
+    "isAppleAudioAccessory" : false,
+    "crowdSourcedLocation" : {
+      "positionType" : "ownedDeviceLocation",
+      "verticalAccuracy" : -1,
+      "longitude" : 175.29578989156406,
+      "floorLevel" : -1,
+      "isInaccurate" : false,
+      "isOld" : false,
+      "horizontalAccuracy" : 28.060314702721151,
+      "latitude" : -37.801681589381111,
+      "timeStamp" : 1683667680000,
+      "altitude" : -1,
+      "locationFinished" : true
+    },
+    "groupIdentifier" : null,
+    "role" : {
+      "name" : "Bike",
+      "emoji" : "🚲",
+      "identifier" : 2
+    },
+    "systemVersion" : "2.0.36",
+    "name" : "Hambini Special"
+  }
+]

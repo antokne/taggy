@@ -1,0 +1,748 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		61BABE5A2A099F3300666814 /* TaggyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE592A099F3300666814 /* TaggyApp.swift */; };
+		61BABE5C2A099F3300666814 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE5B2A099F3300666814 /* ContentView.swift */; };
+		61BABE5E2A099F3300666814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BABE5D2A099F3300666814 /* Assets.xcassets */; };
+		61BABE612A099F3300666814 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BABE602A099F3300666814 /* Preview Assets.xcassets */; };
+		61BABE632A099F3300666814 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE622A099F3300666814 /* Persistence.swift */; };
+		61BABE662A099F3300666814 /* Taggy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE642A099F3300666814 /* Taggy.xcdatamodeld */; };
+		61BABE712A099F3400666814 /* TaggyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE702A099F3400666814 /* TaggyTests.swift */; };
+		61BABE7B2A099F3400666814 /* TaggyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE7A2A099F3400666814 /* TaggyUITests.swift */; };
+		61BABE7D2A099F3400666814 /* TaggyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE7C2A099F3400666814 /* TaggyUITestsLaunchTests.swift */; };
+		61BABE8A2A09A4C800666814 /* AGTagCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE892A09A4C800666814 /* AGTagCollector.swift */; };
+		61BABE8E2A09A51100666814 /* AGCore in Frameworks */ = {isa = PBXBuildFile; productRef = 61BABE8D2A09A51100666814 /* AGCore */; };
+		61BABE922A09A57C00666814 /* AGTaggyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE912A09A57C00666814 /* AGTaggyManager.swift */; };
+		61BABE942A09AC6A00666814 /* AGTagCollectorFindMyItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE932A09AC6A00666814 /* AGTagCollectorFindMyItems.swift */; };
+		61BABE972A09AE3C00666814 /* SFSMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 61BABE962A09AE3C00666814 /* SFSMonitor */; };
+		61BABE9B2A09C74700666814 /* Tag+CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE9A2A09C74700666814 /* Tag+CoreDataExtensions.swift */; };
+		61BABE9E2A09C79100666814 /* AGFindMyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE9D2A09C79100666814 /* AGFindMyItem.swift */; };
+		61BABEA02A09E7D100666814 /* Location+CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE9F2A09E7D100666814 /* Location+CoreDataExtensions.swift */; };
+		61BABEA22A0AF52500666814 /* AGFindMyItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABEA12A0AF52500666814 /* AGFindMyItemTests.swift */; };
+		61BABEA52A0AF56800666814 /* Items.data in Resources */ = {isa = PBXBuildFile; fileRef = 61BABEA42A0AF56800666814 /* Items.data */; };
+		61BABEA82A0AFC8A00666814 /* AGLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABEA72A0AFC8A00666814 /* AGLocationViewModel.swift */; };
+		61BABEAA2A0B007D00666814 /* AGLocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABEA92A0B007D00666814 /* AGLocationListView.swift */; };
+		61BABEAC2A0B15C600666814 /* AGMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABEAB2A0B15C600666814 /* AGMapView.swift */; };
+		61BABEAE2A0B1A8100666814 /* AGMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABEAD2A0B1A8100666814 /* AGMapViewModel.swift */; };
+		61BABEB02A0B467E00666814 /* AGWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABEAF2A0B467E00666814 /* AGWelcomeView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		61BABE6D2A099F3400666814 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61BABE4E2A099F3300666814 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61BABE552A099F3300666814;
+			remoteInfo = Taggy;
+		};
+		61BABE772A099F3400666814 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61BABE4E2A099F3300666814 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61BABE552A099F3300666814;
+			remoteInfo = Taggy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		61BABE562A099F3300666814 /* Taggy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taggy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		61BABE592A099F3300666814 /* TaggyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyApp.swift; sourceTree = "<group>"; };
+		61BABE5B2A099F3300666814 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		61BABE5D2A099F3300666814 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		61BABE602A099F3300666814 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		61BABE622A099F3300666814 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		61BABE652A099F3300666814 /* Taggy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Taggy.xcdatamodel; sourceTree = "<group>"; };
+		61BABE672A099F3300666814 /* Taggy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Taggy.entitlements; sourceTree = "<group>"; };
+		61BABE6C2A099F3400666814 /* TaggyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaggyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		61BABE702A099F3400666814 /* TaggyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyTests.swift; sourceTree = "<group>"; };
+		61BABE762A099F3400666814 /* TaggyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaggyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		61BABE7A2A099F3400666814 /* TaggyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyUITests.swift; sourceTree = "<group>"; };
+		61BABE7C2A099F3400666814 /* TaggyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		61BABE892A09A4C800666814 /* AGTagCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGTagCollector.swift; sourceTree = "<group>"; };
+		61BABE902A09A56100666814 /* AGCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AGCore; path = ../AGCore; sourceTree = "<group>"; };
+		61BABE912A09A57C00666814 /* AGTaggyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGTaggyManager.swift; sourceTree = "<group>"; };
+		61BABE932A09AC6A00666814 /* AGTagCollectorFindMyItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGTagCollectorFindMyItems.swift; sourceTree = "<group>"; };
+		61BABE982A09B51400666814 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		61BABE9A2A09C74700666814 /* Tag+CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataExtensions.swift"; sourceTree = "<group>"; };
+		61BABE9D2A09C79100666814 /* AGFindMyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGFindMyItem.swift; sourceTree = "<group>"; };
+		61BABE9F2A09E7D100666814 /* Location+CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataExtensions.swift"; sourceTree = "<group>"; };
+		61BABEA12A0AF52500666814 /* AGFindMyItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGFindMyItemTests.swift; sourceTree = "<group>"; };
+		61BABEA42A0AF56800666814 /* Items.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Items.data; sourceTree = "<group>"; };
+		61BABEA72A0AFC8A00666814 /* AGLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGLocationViewModel.swift; sourceTree = "<group>"; };
+		61BABEA92A0B007D00666814 /* AGLocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGLocationListView.swift; sourceTree = "<group>"; };
+		61BABEAB2A0B15C600666814 /* AGMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGMapView.swift; sourceTree = "<group>"; };
+		61BABEAD2A0B1A8100666814 /* AGMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGMapViewModel.swift; sourceTree = "<group>"; };
+		61BABEAF2A0B467E00666814 /* AGWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGWelcomeView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		61BABE532A099F3300666814 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61BABE972A09AE3C00666814 /* SFSMonitor in Frameworks */,
+				61BABE8E2A09A51100666814 /* AGCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61BABE692A099F3400666814 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61BABE732A099F3400666814 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		61BABE4D2A099F3300666814 = {
+			isa = PBXGroup;
+			children = (
+				61BABE902A09A56100666814 /* AGCore */,
+				61BABE582A099F3300666814 /* Taggy */,
+				61BABE6F2A099F3400666814 /* TaggyTests */,
+				61BABE792A099F3400666814 /* TaggyUITests */,
+				61BABE572A099F3300666814 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		61BABE572A099F3300666814 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				61BABE562A099F3300666814 /* Taggy.app */,
+				61BABE6C2A099F3400666814 /* TaggyTests.xctest */,
+				61BABE762A099F3400666814 /* TaggyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		61BABE582A099F3300666814 /* Taggy */ = {
+			isa = PBXGroup;
+			children = (
+				61BABE992A09C72D00666814 /* CoreData */,
+				61BABE982A09B51400666814 /* Info.plist */,
+				61BABE8B2A09A4D200666814 /* Managers */,
+				61BABE592A099F3300666814 /* TaggyApp.swift */,
+				61BABEA62A0AFC7100666814 /* ViewModel */,
+				61BABE5B2A099F3300666814 /* ContentView.swift */,
+				61BABEA92A0B007D00666814 /* AGLocationListView.swift */,
+				61BABEAB2A0B15C600666814 /* AGMapView.swift */,
+				61BABEAF2A0B467E00666814 /* AGWelcomeView.swift */,
+				61BABE5D2A099F3300666814 /* Assets.xcassets */,
+				61BABE672A099F3300666814 /* Taggy.entitlements */,
+				61BABE5F2A099F3300666814 /* Preview Content */,
+			);
+			path = Taggy;
+			sourceTree = "<group>";
+		};
+		61BABE5F2A099F3300666814 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				61BABE602A099F3300666814 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		61BABE6F2A099F3400666814 /* TaggyTests */ = {
+			isa = PBXGroup;
+			children = (
+				61BABEA32A0AF55500666814 /* TestData */,
+				61BABE702A099F3400666814 /* TaggyTests.swift */,
+				61BABEA12A0AF52500666814 /* AGFindMyItemTests.swift */,
+			);
+			path = TaggyTests;
+			sourceTree = "<group>";
+		};
+		61BABE792A099F3400666814 /* TaggyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				61BABE7A2A099F3400666814 /* TaggyUITests.swift */,
+				61BABE7C2A099F3400666814 /* TaggyUITestsLaunchTests.swift */,
+			);
+			path = TaggyUITests;
+			sourceTree = "<group>";
+		};
+		61BABE8B2A09A4D200666814 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				61BABE9C2A09C77300666814 /* FindMyItems */,
+				61BABE912A09A57C00666814 /* AGTaggyManager.swift */,
+				61BABE892A09A4C800666814 /* AGTagCollector.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		61BABE992A09C72D00666814 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				61BABE642A099F3300666814 /* Taggy.xcdatamodeld */,
+				61BABE622A099F3300666814 /* Persistence.swift */,
+				61BABE9A2A09C74700666814 /* Tag+CoreDataExtensions.swift */,
+				61BABE9F2A09E7D100666814 /* Location+CoreDataExtensions.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		61BABE9C2A09C77300666814 /* FindMyItems */ = {
+			isa = PBXGroup;
+			children = (
+				61BABE9D2A09C79100666814 /* AGFindMyItem.swift */,
+				61BABE932A09AC6A00666814 /* AGTagCollectorFindMyItems.swift */,
+			);
+			path = FindMyItems;
+			sourceTree = "<group>";
+		};
+		61BABEA32A0AF55500666814 /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				61BABEA42A0AF56800666814 /* Items.data */,
+			);
+			path = TestData;
+			sourceTree = "<group>";
+		};
+		61BABEA62A0AFC7100666814 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				61BABEA72A0AFC8A00666814 /* AGLocationViewModel.swift */,
+				61BABEAD2A0B1A8100666814 /* AGMapViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		61BABE552A099F3300666814 /* Taggy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61BABE802A099F3400666814 /* Build configuration list for PBXNativeTarget "Taggy" */;
+			buildPhases = (
+				61BABE522A099F3300666814 /* Sources */,
+				61BABE532A099F3300666814 /* Frameworks */,
+				61BABE542A099F3300666814 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Taggy;
+			packageProductDependencies = (
+				61BABE8D2A09A51100666814 /* AGCore */,
+				61BABE962A09AE3C00666814 /* SFSMonitor */,
+			);
+			productName = Taggy;
+			productReference = 61BABE562A099F3300666814 /* Taggy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		61BABE6B2A099F3400666814 /* TaggyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61BABE832A099F3400666814 /* Build configuration list for PBXNativeTarget "TaggyTests" */;
+			buildPhases = (
+				61BABE682A099F3400666814 /* Sources */,
+				61BABE692A099F3400666814 /* Frameworks */,
+				61BABE6A2A099F3400666814 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61BABE6E2A099F3400666814 /* PBXTargetDependency */,
+			);
+			name = TaggyTests;
+			productName = TaggyTests;
+			productReference = 61BABE6C2A099F3400666814 /* TaggyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		61BABE752A099F3400666814 /* TaggyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61BABE862A099F3400666814 /* Build configuration list for PBXNativeTarget "TaggyUITests" */;
+			buildPhases = (
+				61BABE722A099F3400666814 /* Sources */,
+				61BABE732A099F3400666814 /* Frameworks */,
+				61BABE742A099F3400666814 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61BABE782A099F3400666814 /* PBXTargetDependency */,
+			);
+			name = TaggyUITests;
+			productName = TaggyUITests;
+			productReference = 61BABE762A099F3400666814 /* TaggyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		61BABE4E2A099F3300666814 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					61BABE552A099F3300666814 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					61BABE6B2A099F3400666814 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 61BABE552A099F3300666814;
+					};
+					61BABE752A099F3400666814 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 61BABE552A099F3300666814;
+					};
+				};
+			};
+			buildConfigurationList = 61BABE512A099F3300666814 /* Build configuration list for PBXProject "Taggy" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 61BABE4D2A099F3300666814;
+			packageReferences = (
+				61BABE8C2A09A51100666814 /* XCRemoteSwiftPackageReference "AGCore" */,
+				61BABE952A09AE3C00666814 /* XCRemoteSwiftPackageReference "SFSMonitor" */,
+			);
+			productRefGroup = 61BABE572A099F3300666814 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				61BABE552A099F3300666814 /* Taggy */,
+				61BABE6B2A099F3400666814 /* TaggyTests */,
+				61BABE752A099F3400666814 /* TaggyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		61BABE542A099F3300666814 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61BABE612A099F3300666814 /* Preview Assets.xcassets in Resources */,
+				61BABE5E2A099F3300666814 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61BABE6A2A099F3400666814 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61BABEA52A0AF56800666814 /* Items.data in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61BABE742A099F3400666814 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		61BABE522A099F3300666814 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61BABE632A099F3300666814 /* Persistence.swift in Sources */,
+				61BABE9B2A09C74700666814 /* Tag+CoreDataExtensions.swift in Sources */,
+				61BABE5C2A099F3300666814 /* ContentView.swift in Sources */,
+				61BABEAA2A0B007D00666814 /* AGLocationListView.swift in Sources */,
+				61BABE942A09AC6A00666814 /* AGTagCollectorFindMyItems.swift in Sources */,
+				61BABEA82A0AFC8A00666814 /* AGLocationViewModel.swift in Sources */,
+				61BABEB02A0B467E00666814 /* AGWelcomeView.swift in Sources */,
+				61BABE662A099F3300666814 /* Taggy.xcdatamodeld in Sources */,
+				61BABEAC2A0B15C600666814 /* AGMapView.swift in Sources */,
+				61BABE8A2A09A4C800666814 /* AGTagCollector.swift in Sources */,
+				61BABEAE2A0B1A8100666814 /* AGMapViewModel.swift in Sources */,
+				61BABE922A09A57C00666814 /* AGTaggyManager.swift in Sources */,
+				61BABEA02A09E7D100666814 /* Location+CoreDataExtensions.swift in Sources */,
+				61BABE5A2A099F3300666814 /* TaggyApp.swift in Sources */,
+				61BABE9E2A09C79100666814 /* AGFindMyItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61BABE682A099F3400666814 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61BABE712A099F3400666814 /* TaggyTests.swift in Sources */,
+				61BABEA22A0AF52500666814 /* AGFindMyItemTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61BABE722A099F3400666814 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61BABE7B2A099F3400666814 /* TaggyUITests.swift in Sources */,
+				61BABE7D2A099F3400666814 /* TaggyUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		61BABE6E2A099F3400666814 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 61BABE552A099F3300666814 /* Taggy */;
+			targetProxy = 61BABE6D2A099F3400666814 /* PBXContainerItemProxy */;
+		};
+		61BABE782A099F3400666814 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 61BABE552A099F3300666814 /* Taggy */;
+			targetProxy = 61BABE772A099F3400666814 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		61BABE7E2A099F3400666814 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		61BABE7F2A099F3400666814 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		61BABE812A099F3400666814 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Taggy/Taggy.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "\"Taggy/Preview Content\"";
+				DEVELOPMENT_TEAM = 9J93HX6462;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Taggy/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antokne.Taggy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		61BABE822A099F3400666814 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Taggy/Taggy.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "\"Taggy/Preview Content\"";
+				DEVELOPMENT_TEAM = 9J93HX6462;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Taggy/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antokne.Taggy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		61BABE842A099F3400666814 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9J93HX6462;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antokne.TaggyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taggy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Taggy";
+			};
+			name = Debug;
+		};
+		61BABE852A099F3400666814 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9J93HX6462;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antokne.TaggyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taggy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Taggy";
+			};
+			name = Release;
+		};
+		61BABE872A099F3400666814 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9J93HX6462;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antokne.TaggyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Taggy;
+			};
+			name = Debug;
+		};
+		61BABE882A099F3400666814 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9J93HX6462;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antokne.TaggyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Taggy;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		61BABE512A099F3300666814 /* Build configuration list for PBXProject "Taggy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61BABE7E2A099F3400666814 /* Debug */,
+				61BABE7F2A099F3400666814 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61BABE802A099F3400666814 /* Build configuration list for PBXNativeTarget "Taggy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61BABE812A099F3400666814 /* Debug */,
+				61BABE822A099F3400666814 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61BABE832A099F3400666814 /* Build configuration list for PBXNativeTarget "TaggyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61BABE842A099F3400666814 /* Debug */,
+				61BABE852A099F3400666814 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61BABE862A099F3400666814 /* Build configuration list for PBXNativeTarget "TaggyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61BABE872A099F3400666814 /* Debug */,
+				61BABE882A099F3400666814 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		61BABE8C2A09A51100666814 /* XCRemoteSwiftPackageReference "AGCore" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/antokne/AGCore";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		61BABE952A09AE3C00666814 /* XCRemoteSwiftPackageReference "SFSMonitor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ClassicalDude/SFSMonitor.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		61BABE8D2A09A51100666814 /* AGCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61BABE8C2A09A51100666814 /* XCRemoteSwiftPackageReference "AGCore" */;
+			productName = AGCore;
+		};
+		61BABE962A09AE3C00666814 /* SFSMonitor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61BABE952A09AE3C00666814 /* XCRemoteSwiftPackageReference "SFSMonitor" */;
+			productName = SFSMonitor;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		61BABE642A099F3300666814 /* Taggy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				61BABE652A099F3300666814 /* Taggy.xcdatamodel */,
+			);
+			currentVersion = 61BABE652A099F3300666814 /* Taggy.xcdatamodel */;
+			path = Taggy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 61BABE4E2A099F3300666814 /* Project object */;
+}
