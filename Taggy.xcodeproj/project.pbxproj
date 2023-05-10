@@ -65,7 +65,6 @@
 		61BABE7A2A099F3400666814 /* TaggyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyUITests.swift; sourceTree = "<group>"; };
 		61BABE7C2A099F3400666814 /* TaggyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		61BABE892A09A4C800666814 /* AGTagCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGTagCollector.swift; sourceTree = "<group>"; };
-		61BABE902A09A56100666814 /* AGCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AGCore; path = ../AGCore; sourceTree = "<group>"; };
 		61BABE912A09A57C00666814 /* AGTaggyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGTaggyManager.swift; sourceTree = "<group>"; };
 		61BABE932A09AC6A00666814 /* AGTagCollectorFindMyItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGTagCollectorFindMyItems.swift; sourceTree = "<group>"; };
 		61BABE982A09B51400666814 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -111,7 +110,6 @@
 		61BABE4D2A099F3300666814 = {
 			isa = PBXGroup;
 			children = (
-				61BABE902A09A56100666814 /* AGCore */,
 				61BABE582A099F3300666814 /* Taggy */,
 				61BABE6F2A099F3400666814 /* TaggyTests */,
 				61BABE792A099F3400666814 /* TaggyUITests */,

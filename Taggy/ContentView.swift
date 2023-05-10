@@ -25,29 +25,15 @@ struct ContentView: View {
 	var body: some View {
 		NavigationSplitView {
 			List(tags, selection: $selectedTag) { tag in
-//				ForEach(tags) { tag in
-//					NavigationLink(tag: tag, selection: $selectedTag) {
-//						let _ = print("selected tag = \(selectedTag)")
-//						let fetchRequest = FetchRequest(fetchRequest: Location.sortedFetchRequest(tag: tag))
-//						AGLocationListView(locations: fetchRequest)
-//					} label: {
-//						HStack {
-//							Text(tag.emoji ?? "")
-//							Text(tag.name ?? "")
-//						}
-//					}
-					
-				//let _ = print("selected = \(selectedTag)")
-					NavigationLink(value: tag) {
-						HStack {
-							Text(tag.emoji ?? "")
-							Text(tag.name ?? "")
-						}
+				NavigationLink(value: tag) {
+					HStack {
+						Text(tag.emoji ?? "")
+						Text(tag.name ?? "")
 					}
-//				}
+				}
 			}
 			.navigationTitle("Tags")
-			.onDeleteCommand(perform: deleteItems)
+			.onDeleteCommand(perform: deleteItem)
 			.toolbar {
 				ToolbarItemGroup {
 					Button(action: playPause) {
@@ -74,18 +60,7 @@ struct ContentView: View {
 			}
 		} detail: {
 			if let selectedTag {
-				//let _ = print("for map selected = \(selectedTag)")
-//				Text("\(selectedTag)")
 				AGMapView(viewModel: AGMapViewModel(tag: selectedTag))
-			}
-		}
-	}
-
-	private func selectFile() {
-		NSOpenPanel.openImage { (result) in
-			if case let .success(url) = result {
-				print(url)
-				
 			}
 		}
 	}
@@ -102,55 +77,17 @@ struct ContentView: View {
 			AGTaggyManager.shared.collector.startCollecting()
 		}
 		isCollecting = AGTaggyManager.shared.collector.isCollecting
-		print(isCollecting)
 	}
 	
-//	private func addItem() {
-//		withAnimation {
-//			let newItem = Item(context: viewContext)
-//			newItem.timestamp = Date()
-//
-//			do {
-//				try viewContext.save()
-//			} catch {
-//				// Replace this implementation with code to handle the error appropriately.
-//				// fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//				let nsError = error as NSError
-//				fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//			}
-//		}
-//	}
-	
-	private func deleteItems() {
+	private func deleteItem() {
 		if let selectedTag {
 			viewContext.delete(selectedTag)
 			try? viewContext.save()
 			self.selectedTag = nil
 		}
 	}
-		
-	private func deleteItems(offsets: IndexSet) {
-		withAnimation {
-			offsets.map { tags[$0] }.forEach(viewContext.delete)
-			
-			do {
-				try viewContext.save()
-			} catch {
-				// Replace this implementation with code to handle the error appropriately.
-				// fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-				let nsError = error as NSError
-				fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-			}
-		}
-	}
-}
 
-private let itemFormatter: DateFormatter = {
-	let formatter = DateFormatter()
-	formatter.dateStyle = .short
-	formatter.timeStyle = .medium
-	return formatter
-}()
+}
 
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
@@ -158,25 +95,3 @@ struct ContentView_Previews: PreviewProvider {
 	}
 }
 
-
-extension NSOpenPanel {
-	
-	static func openImage(completion: @escaping (_ result: Result<URL, Error>) -> ()) {
-		let panel = NSOpenPanel()
-		panel.allowsMultipleSelection = false
-		panel.canChooseFiles = true
-		panel.canChooseDirectories = false
-		panel.allowedFileTypes = ["jpg", "jpeg", "png", "fit", "data"]
-		panel.canChooseFiles = true
-		panel.begin { (result) in
-			if result == .OK,
-			   let url = panel.urls.first {
-				completion(.success(url))
-			} else {
-				completion(.failure(
-					NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to get file location"])
-				))
-			}
-		}
-	}
-}

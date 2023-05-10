@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Protocol to use to create new collectors.
 protocol AGTagCollectorProtocol {
 	func startCollectingImpl()
 	func stopCollectingImpl()
@@ -21,23 +22,16 @@ public class AGTagCollector {
 	let collectors:[AGTagCollectorProtocol] = [AGTagCollectorFindMyItems()]
 
 	func startCollecting() {
-		
 		isCollecting = true
-		
 		for collector in collectors {
 			collector.startCollectingImpl()
 		}
-		
 	}
 	
 	func stopCollecting() {
-		
 		isCollecting = false
-		
 		for collector in collectors {
 			collector.stopCollectingImpl()
 		}
-
 	}
-	
 }

@@ -27,13 +27,10 @@ class AGMapViewModel: ObservableObject {
 
 	var boundingRect: MKMapRect = MKMapRect()
 
-	init(tag: Tag?) {
+	init(tag: Tag? = nil) {
 		
-		print("AGMapViewModel got tag \(tag?.name)")
 		self.tag = tag
-		
 		let fetchRequest = Location.sortedFetchRequest(tag: tag)
-		
 		do {
 			self.locations = try PersistenceController.shared.container.viewContext.fetch(fetchRequest)
 			self.boundingRect = self.polyline.boundingMapRect

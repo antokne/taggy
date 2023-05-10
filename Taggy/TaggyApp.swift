@@ -24,7 +24,6 @@ struct TaggyApp: App {
 			case .background:
 				break
 			case .active:
-				//taggyManager.collector.startCollecting()
 				break
 			default:
 				break
