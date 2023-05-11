@@ -1,5 +1,6 @@
-# taggy
-Simple Mac app to collect Air Tag location data from Find My App
+# Taggy
+
+A simple Mac app to collect Air Tag location data from Find My App
 
 **Non-App Store version**
 
