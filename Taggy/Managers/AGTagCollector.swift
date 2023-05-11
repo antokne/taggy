@@ -43,16 +43,6 @@ public class AGTagCollector {
 	var messageTimer: Timer?
 	
 	init() {
-		messageTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { [weak self] timer in
-			
-			guard let self else {
-				return
-			}
-
-			Task { @MainActor in
-				await self.processMessageStack()
-			}
-		}
 	}
 
 	func startCollecting() -> Bool {
@@ -69,6 +59,8 @@ public class AGTagCollector {
 			Task {
 				await messageHandler.addMessage(message: "Collecting started.")
 			}
+			
+			createTimer()
 		}
 		return isCollecting
 	}
@@ -81,6 +73,19 @@ public class AGTagCollector {
 		}
 		Task {
 			await messageHandler.addMessage(message: "Collecting stopped.")
+		}
+	}
+	
+	func createTimer() {
+		messageTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { [weak self] timer in
+			
+			guard let self else {
+				return
+			}
+			
+			Task { @MainActor in
+				await self.processMessageStack()
+			}
 		}
 	}
 	

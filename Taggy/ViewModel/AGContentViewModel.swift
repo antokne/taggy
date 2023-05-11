@@ -22,13 +22,18 @@ class AGContentViewModel: ObservableObject {
 		isCollectingCancellable = AGTaggyManager.shared.collector.$isCollecting
 			.receive(on: RunLoop.main)
 			.sink { [weak self] isCollecting in
-				self?.isCollecting = isCollecting
+				if self?.isCollecting != isCollecting {
+					self?.isCollecting = isCollecting
+				}
 			}
 
 		messageCancellable = AGTaggyManager.shared.collector.$message
 			.receive(on: RunLoop.main)
 			.sink { [weak self] message in
-				self?.message = message
+				
+				if self?.message != message {
+					self?.message = message
+				}
 		}
 	}
 }

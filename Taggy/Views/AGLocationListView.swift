@@ -30,6 +30,7 @@ struct AGLocationListView: View {
 				Text("\(selectedLocations.count) locations selected")
 			}
 			.frame(height: 20)
+			.padding(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0))
 		}
 	}
 }
