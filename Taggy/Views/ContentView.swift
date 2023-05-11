@@ -38,7 +38,6 @@ struct ContentView: View {
 				}
 			}
 			.navigationTitle("Tags")
-			.onDeleteCommand(perform: deleteItem)
 			.toolbar {
 				ToolbarItemGroup {
 					Button(action: playPause) {
@@ -76,6 +75,7 @@ struct ContentView: View {
 		.alert(isPresented: $showingFailedToStartAlert) {
 			FailedToStartAlertView
 		}
+		.onDeleteCommand(perform: deleteItem)
 
 	}
 	
