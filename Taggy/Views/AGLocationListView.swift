@@ -26,7 +26,10 @@ struct AGLocationListView: View {
 					.width(60)
 				// TableColumn("Tag", value: \AGLocationData.tagName)
 			}
-			Text("\(selectedLocations.count) locations selected")
+			HStack {
+				Text("\(selectedLocations.count) locations selected")
+			}
+			.frame(height: 20)
 		}
 	}
 }

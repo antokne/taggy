@@ -7,65 +7,72 @@
 
 import Foundation
 import Combine
-import SFSMonitor
 import CoreData
 import OSLog
 
 public class AGTagCollectorFindMyItems: AGTagCollectorProtocol {
 	
-	private var FindMyAirTagsFile = "\(FileManager.default.homeDirectoryForCurrentUser)Library/Caches/com.apple.findmy.fmipcore/Items.data"
-
-	private let monitorDispatchQueue =  DispatchQueue(label: "AGTagCollectorFindMyItemsDispatchQueue", qos: .utility)
+	var notifyStatusDelegate: AGTagNotifyStatusProcotol?
 	
-	private var monitor: SFSMonitor?
+	private var FindMyAirTagsFolder = "\(FileManager.default.homeDirectoryForCurrentUser)Library/Caches/com.apple.findmy.fmipcore"
+	private var FindMyAirTagsFile = "\(FileManager.default.homeDirectoryForCurrentUser)Library/Caches/com.apple.findmy.fmipcore/Items.data"
 
 	let log = Logger(subsystem: Bundle.mainBundleId ?? "Taggy", category: "AGTagCollectorFindMyItems")
 	
-	func startCollectingImpl() {
-		monitor = SFSMonitor(delegate: self)
-		monitor?.setMaxMonitored(number: 10)
-		
-		if let url = URL(string: FindMyAirTagsFile) {
+	var collectingTimer: Timer?
+	
+	func startCollectingImpl(rate rateMin: Int) -> Bool {
 			
-			let result = monitor?.addURL(url)
-			switch result {
-			case 0:
-				// ok
-				log.debug("Starting monitoring item file \(url)")
-			case 1:
-				log.debug("File \(url) is already being monitored")
-			case 2:
-				log.debug("Failed to start monitoring file \(url), too many files being monitored.")
-			default:
-				log.debug("Failed to start monitoring file \(url).")
+			log.info("Creating timer with rate of \(rateMin) minute.")
+			collectingTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(rateMin * 60), repeats: true) { [weak self] timer in
+
+				guard let self else {
+					return
+				}
+
+				let result = self.handleTagData()
+				if !result {
+					log.error("Failed to handle tag data.")
+				}
 			}
 			
-			handleTagData(url: url)
-		}
-		
+			return handleTagData()
 	}
 	
 	func stopCollectingImpl() {
 		
 		log.debug("Stop montoring item file")
 		
-		if let url = URL(string: FindMyAirTagsFile) {
-			monitor?.removeURL(url)
-		}
+		collectingTimer?.invalidate()
+		collectingTimer = nil
 	}
 	
-	func handleTagData(url: URL) {
-		log.info("Notified of change of item file \(url)")
-		loadFileData(url: url)
+	func handleTagData() -> Bool {
+		
+		guard let url = URL(string: FindMyAirTagsFile) else {
+			log.error("No file url")
+			return false
+		}
+		self.notifyStatusDelegate?.notifiyStatusMessage(message: "Started collecting data.")
+		
+		log.info("handle tag data for \(url)")
+		
+		let result = loadFileData(url: url)
+		
+		self.notifyStatusDelegate?.notifiyStatusMessage(message: "Collecting data completed.")
+
+		return result
 	}
 
-	func loadFileData(url: URL) {
+	func loadFileData(url: URL) -> Bool {
 		if let json = readFile(url: url) {
 			for jsonItem in json {
 				let item = AGFindMyItem(json: jsonItem)
 				addRecord(item: item)
 			}
+			return true
 		}
+		return false
 	}
 	
 	func readFile(url: URL) -> Array<Dictionary<String,Any>>? {
@@ -115,6 +122,8 @@ public class AGTagCollectorFindMyItems: AGTagCollectorProtocol {
 				location = addLocationRecord(item: item, context: context)
 				location?.tag = existingTag
 				self.log.info("Add location with timestamp \(timestamp) \(location?.latitude ?? -1):\(location?.longitude ?? -1) to tag with name \(existingTag.name ?? "?")")
+				
+				self.notifyStatusDelegate?.notifiyStatusMessage(message: "Added location for \(existingTag.name ?? "?")")
 			}
 			else {
 				self.log.info("Location with timestamp \(timestamp) already added for tag with name \(existingTag.name ?? "?")")
@@ -150,17 +159,6 @@ public class AGTagCollectorFindMyItems: AGTagCollectorProtocol {
 				.setLongitude(longitude: item.longitude)
 				.setTimestamp(timestamp: item.timestamp)
 		}
-	}
-	
-}
-
-extension AGTagCollectorFindMyItems: SFSMonitorDelegate {
-	
-	public func receivedNotification(_ notification: SFSMonitorNotification, url: URL, queue: SFSMonitor) {
-		print("\(notification.toStrings().map { $0.rawValue }) @ \(url.path)")
-		
-		handleTagData(url: url)
-
 	}
 	
 }

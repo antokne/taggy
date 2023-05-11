@@ -7,10 +7,14 @@
 
 import SwiftUI
 import CoreData
+import AGCore
 
 struct ContentView: View {
 	@Environment(\.managedObjectContext) private var viewContext
-	
+	@Environment(\.openWindow) var openWindow
+
+	@State private var showingFailedToStartAlert = false
+
 	@FetchRequest(
 		sortDescriptors: [NSSortDescriptor(keyPath: \Tag.name, ascending: true)],
 		animation: .default)
@@ -18,9 +22,10 @@ struct ContentView: View {
 	
 	@State private var dragOver = false
 	@State private var selectedTag: Tag?
-	@State private var isCollecting = AGTaggyManager.shared.collector.isCollecting
 	@State private var mapTag: Tag?
 	@State private var showWelcomeView: Bool = false
+	
+	@ObservedObject var viewModel = AGContentViewModel()
 
 	var body: some View {
 		NavigationSplitView {
@@ -37,19 +42,24 @@ struct ContentView: View {
 			.toolbar {
 				ToolbarItemGroup {
 					Button(action: playPause) {
-						Label(isCollecting ? "Start" : "Stop", systemImage: isCollecting ? "stop.circle.fill":  "record.circle")
+						Label("", systemImage: viewModel.isCollecting ? "stop.circle.fill":  "record.circle")
 					}
 					Button(action: openFindMy) {
 						Text("Open FindMy...")
 					}
 					Button("?") {
-						showWelcomeView = true
-					}
-					.popover(isPresented: $showWelcomeView, arrowEdge: .bottom) {
-						AGWelcomeView()
+						openWelcome()
 					}
 				}
 			}
+			
+			HStack {
+				Text(viewModel.message)
+				Spacer()
+			}
+			.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
+			.frame(height: 20)
+			
 		} content: {
 			if let selectedTag {
 				let fetchRequest = FetchRequest(fetchRequest: Location.sortedFetchRequest(tag: selectedTag))
@@ -63,20 +73,29 @@ struct ContentView: View {
 				AGMapView(viewModel: AGMapViewModel(tag: selectedTag))
 			}
 		}
-	}
+		.alert(isPresented: $showingFailedToStartAlert) {
+			FailedToStartAlertView
+		}
 
+	}
+	
 	private func openFindMy() {
 		NSWorkspace.shared.open(URL(string: "findmy://")!)
 	}
 	
+	private func openWelcome() {
+		openWindow(id: "taggy-welcome-window")
+	}
+	
 	private func playPause() {
-		if isCollecting {
+		if AGTaggyManager.shared.collector.isCollecting {
 			AGTaggyManager.shared.collector.stopCollecting()
 		}
 		else {
-			AGTaggyManager.shared.collector.startCollecting()
+			if !AGTaggyManager.shared.collector.startCollecting() {
+				showingFailedToStartAlert = true
+			}
 		}
-		isCollecting = AGTaggyManager.shared.collector.isCollecting
 	}
 	
 	private func deleteItem() {

@@ -45,18 +45,32 @@ class AGMapViewModel: ObservableObject {
 		locationCoodinates.map { IdentifiablePoint(location: $0) }
 	}
 	
-	lazy var locationCoodinates: [CLLocationCoordinate2D] = {
+	var locationCoodinates: [CLLocationCoordinate2D] {
 		locations.map { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude) }
-	}()
+	}
 	
 	
-	lazy var mapPoints: [MKMapPoint] = {
+	var mapPoints: [MKMapPoint] {
 		locationCoodinates.map { MKMapPoint($0) }
-	}()
+	}
 	
-	lazy var polyline: MKPolyline = {
+	var polyline: MKPolyline {
 		MKPolyline(coordinates: locationCoodinates, count: locationCoodinates.count)
-	}()
+	}
 	
+	var coordinateRegion: MKCoordinateRegion {
+		var union: MKMapRect? = nil
+		for point in mapPoints {
+			let rect = MKMapRect(origin: point, size: MKMapSize())
+			
+			guard var union else {
+				union = rect
+				continue
+			}
+			
+			union = union.union(rect)
+		}
+		return MKCoordinateRegion(union ?? MKMapRect())
+	}
 	
 }

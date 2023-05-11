@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import AGCore
 
 @main
 struct TaggyApp: App {
 	@Environment(\.scenePhase) var scenePhase
-	let taggyManager = AGTaggyManager()
+	@Environment(\.openWindow) var openWindow
+
+	let taggyManager = AGTaggyManager.shared
 	
 	var body: some Scene {
+				
 		WindowGroup {
 			ContentView()
 				.environment(\.managedObjectContext, taggyManager.persistenceController.container.viewContext)
@@ -24,10 +28,33 @@ struct TaggyApp: App {
 			case .background:
 				break
 			case .active:
+				onActive()
 				break
 			default:
 				break
 			}
+		}
+		
+		Settings {
+			TaggyPreferencesView()
+		}
+		
+		Window("Welcome to Taggy", id: "taggy-welcome-window") {
+			AGWelcomeView()
+		}
+	}
+	
+	private func onActive() {
+		var showWelcomeScreen = AGUserDefaultBoolValue(keyName: "showWelcomeScreen")
+		if showWelcomeScreen.boolValue == false {
+			openWelcome()
+			showWelcomeScreen.boolValue = true
+		}
+	}
+	
+	private func openWelcome() {
+		Task { @MainActor in
+			openWindow(id: "taggy-welcome-window")
 		}
 	}
 }

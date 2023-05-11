@@ -20,7 +20,6 @@
 		61BABE8E2A09A51100666814 /* AGCore in Frameworks */ = {isa = PBXBuildFile; productRef = 61BABE8D2A09A51100666814 /* AGCore */; };
 		61BABE922A09A57C00666814 /* AGTaggyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE912A09A57C00666814 /* AGTaggyManager.swift */; };
 		61BABE942A09AC6A00666814 /* AGTagCollectorFindMyItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE932A09AC6A00666814 /* AGTagCollectorFindMyItems.swift */; };
-		61BABE972A09AE3C00666814 /* SFSMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 61BABE962A09AE3C00666814 /* SFSMonitor */; };
 		61BABE9B2A09C74700666814 /* Tag+CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE9A2A09C74700666814 /* Tag+CoreDataExtensions.swift */; };
 		61BABE9E2A09C79100666814 /* AGFindMyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE9D2A09C79100666814 /* AGFindMyItem.swift */; };
 		61BABEA02A09E7D100666814 /* Location+CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE9F2A09E7D100666814 /* Location+CoreDataExtensions.swift */; };
@@ -31,6 +30,10 @@
 		61BABEAC2A0B15C600666814 /* AGMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABEAB2A0B15C600666814 /* AGMapView.swift */; };
 		61BABEAE2A0B1A8100666814 /* AGMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABEAD2A0B1A8100666814 /* AGMapViewModel.swift */; };
 		61BABEB02A0B467E00666814 /* AGWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABEAF2A0B467E00666814 /* AGWelcomeView.swift */; };
+		61FFD7752A0C35730096BA25 /* TaggyPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFD7742A0C35730096BA25 /* TaggyPreferencesView.swift */; };
+		61FFD7792A0C4E8C0096BA25 /* TaggyGeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFD7782A0C4E8C0096BA25 /* TaggyGeneralSettingsView.swift */; };
+		61FFD77C2A0C65790096BA25 /* AGCommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFD77B2A0C65790096BA25 /* AGCommonViews.swift */; };
+		61FFD77E2A0C6BFC0096BA25 /* AGContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFD77D2A0C6BFC0096BA25 /* AGContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,11 @@
 		61BABEAB2A0B15C600666814 /* AGMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGMapView.swift; sourceTree = "<group>"; };
 		61BABEAD2A0B1A8100666814 /* AGMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGMapViewModel.swift; sourceTree = "<group>"; };
 		61BABEAF2A0B467E00666814 /* AGWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGWelcomeView.swift; sourceTree = "<group>"; };
+		61FFD7742A0C35730096BA25 /* TaggyPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyPreferencesView.swift; sourceTree = "<group>"; };
+		61FFD7762A0C40200096BA25 /* AGCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AGCore; path = ../AGCore; sourceTree = "<group>"; };
+		61FFD7782A0C4E8C0096BA25 /* TaggyGeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyGeneralSettingsView.swift; sourceTree = "<group>"; };
+		61FFD77B2A0C65790096BA25 /* AGCommonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGCommonViews.swift; sourceTree = "<group>"; };
+		61FFD77D2A0C6BFC0096BA25 /* AGContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61BABE972A09AE3C00666814 /* SFSMonitor in Frameworks */,
 				61BABE8E2A09A51100666814 /* AGCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +117,7 @@
 		61BABE4D2A099F3300666814 = {
 			isa = PBXGroup;
 			children = (
+				61FFD7762A0C40200096BA25 /* AGCore */,
 				61BABE582A099F3300666814 /* Taggy */,
 				61BABE6F2A099F3400666814 /* TaggyTests */,
 				61BABE792A099F3400666814 /* TaggyUITests */,
@@ -130,15 +138,12 @@
 		61BABE582A099F3300666814 /* Taggy */ = {
 			isa = PBXGroup;
 			children = (
-				61BABE992A09C72D00666814 /* CoreData */,
-				61BABE982A09B51400666814 /* Info.plist */,
-				61BABE8B2A09A4D200666814 /* Managers */,
 				61BABE592A099F3300666814 /* TaggyApp.swift */,
+				61BABE992A09C72D00666814 /* CoreData */,
+				61BABE8B2A09A4D200666814 /* Managers */,
 				61BABEA62A0AFC7100666814 /* ViewModel */,
-				61BABE5B2A099F3300666814 /* ContentView.swift */,
-				61BABEA92A0B007D00666814 /* AGLocationListView.swift */,
-				61BABEAB2A0B15C600666814 /* AGMapView.swift */,
-				61BABEAF2A0B467E00666814 /* AGWelcomeView.swift */,
+				61FFD77A2A0C652B0096BA25 /* Views */,
+				61BABE982A09B51400666814 /* Info.plist */,
 				61BABE5D2A099F3300666814 /* Assets.xcassets */,
 				61BABE672A099F3300666814 /* Taggy.entitlements */,
 				61BABE5F2A099F3300666814 /* Preview Content */,
@@ -177,8 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				61BABE9C2A09C77300666814 /* FindMyItems */,
-				61BABE912A09A57C00666814 /* AGTaggyManager.swift */,
 				61BABE892A09A4C800666814 /* AGTagCollector.swift */,
+				61BABE912A09A57C00666814 /* AGTaggyManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -216,8 +221,31 @@
 			children = (
 				61BABEA72A0AFC8A00666814 /* AGLocationViewModel.swift */,
 				61BABEAD2A0B1A8100666814 /* AGMapViewModel.swift */,
+				61FFD77D2A0C6BFC0096BA25 /* AGContentViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		61FFD7772A0C4E6E0096BA25 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				61FFD7742A0C35730096BA25 /* TaggyPreferencesView.swift */,
+				61FFD7782A0C4E8C0096BA25 /* TaggyGeneralSettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		61FFD77A2A0C652B0096BA25 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				61FFD77B2A0C65790096BA25 /* AGCommonViews.swift */,
+				61BABE5B2A099F3300666814 /* ContentView.swift */,
+				61BABEA92A0B007D00666814 /* AGLocationListView.swift */,
+				61BABEAB2A0B15C600666814 /* AGMapView.swift */,
+				61BABEAF2A0B467E00666814 /* AGWelcomeView.swift */,
+				61FFD7772A0C4E6E0096BA25 /* Settings */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,7 +266,6 @@
 			name = Taggy;
 			packageProductDependencies = (
 				61BABE8D2A09A51100666814 /* AGCore */,
-				61BABE962A09AE3C00666814 /* SFSMonitor */,
 			);
 			productName = Taggy;
 			productReference = 61BABE562A099F3300666814 /* Taggy.app */;
@@ -314,7 +341,6 @@
 			mainGroup = 61BABE4D2A099F3300666814;
 			packageReferences = (
 				61BABE8C2A09A51100666814 /* XCRemoteSwiftPackageReference "AGCore" */,
-				61BABE952A09AE3C00666814 /* XCRemoteSwiftPackageReference "SFSMonitor" */,
 			);
 			productRefGroup = 61BABE572A099F3300666814 /* Products */;
 			projectDirPath = "";
@@ -368,11 +394,15 @@
 				61BABEB02A0B467E00666814 /* AGWelcomeView.swift in Sources */,
 				61BABE662A099F3300666814 /* Taggy.xcdatamodeld in Sources */,
 				61BABEAC2A0B15C600666814 /* AGMapView.swift in Sources */,
+				61FFD77C2A0C65790096BA25 /* AGCommonViews.swift in Sources */,
 				61BABE8A2A09A4C800666814 /* AGTagCollector.swift in Sources */,
+				61FFD77E2A0C6BFC0096BA25 /* AGContentViewModel.swift in Sources */,
 				61BABEAE2A0B1A8100666814 /* AGMapViewModel.swift in Sources */,
+				61FFD7792A0C4E8C0096BA25 /* TaggyGeneralSettingsView.swift in Sources */,
 				61BABE922A09A57C00666814 /* AGTaggyManager.swift in Sources */,
 				61BABEA02A09E7D100666814 /* Location+CoreDataExtensions.swift in Sources */,
 				61BABE5A2A099F3300666814 /* TaggyApp.swift in Sources */,
+				61FFD7752A0C35730096BA25 /* TaggyPreferencesView.swift in Sources */,
 				61BABE9E2A09C79100666814 /* AGFindMyItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -706,14 +736,6 @@
 				kind = branch;
 			};
 		};
-		61BABE952A09AE3C00666814 /* XCRemoteSwiftPackageReference "SFSMonitor" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ClassicalDude/SFSMonitor.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -721,11 +743,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 61BABE8C2A09A51100666814 /* XCRemoteSwiftPackageReference "AGCore" */;
 			productName = AGCore;
-		};
-		61BABE962A09AE3C00666814 /* SFSMonitor */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 61BABE952A09AE3C00666814 /* XCRemoteSwiftPackageReference "SFSMonitor" */;
-			productName = SFSMonitor;
 		};
 /* End XCSwiftPackageProductDependency section */
 
