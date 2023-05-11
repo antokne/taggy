@@ -34,9 +34,8 @@ public class AGTagCollector {
 	
 	@Published public var isCollecting: Bool = false
 	@Published public var message: String = ""
-	
-	
-	private let collectingRateValue = AGUserDefaultDoubleValue(keyName: TagCollectingRateMinuteName)
+		
+	private let collectingRateValue = AGUserDefaultDoubleValue(keyName: TagCollectingRateMinuteName, defaultValue: 1)
 
 	let collectors:[AGTagCollectorProtocol] = [AGTagCollectorFindMyItems()]
 
