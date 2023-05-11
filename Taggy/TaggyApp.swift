@@ -34,6 +34,11 @@ struct TaggyApp: App {
 				break
 			}
 		}
+		.commands {
+			CommandGroup(after: .appInfo) {
+				TaggyCheckForUpdatesView(updater: taggyManager.updateController.updater)
+			}
+		}
 		
 		Settings {
 			TaggyPreferencesView()
@@ -45,6 +50,9 @@ struct TaggyApp: App {
 	}
 	
 	private func onActive() {
+		
+		taggyManager.updateController.startUpdater()
+		
 		var showWelcomeScreen = AGUserDefaultBoolValue(keyName: "showWelcomeScreen")
 		if showWelcomeScreen.boolValue == false {
 			openWelcome()

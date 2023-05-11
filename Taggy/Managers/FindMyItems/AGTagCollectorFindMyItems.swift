@@ -66,17 +66,13 @@ public class AGTagCollectorFindMyItems: AGTagCollectorProtocol {
 
 	func loadFileData(url: URL) -> Bool {
 		if let json = readFile(url: url) {
-			for jsonItem in json {
-				let item = AGFindMyItem(json: jsonItem)
-				addRecord(item: item)
-			}
+			checkRecords(json: json)
 			return true
 		}
 		return false
 	}
 	
 	func readFile(url: URL) -> Array<Dictionary<String,Any>>? {
-		
 		do {
 			let data = try Data(contentsOf: url)
 			if let json = try JSONSerialization.jsonObject(with: data) as? Array<Dictionary<String,Any>> {
@@ -89,76 +85,86 @@ public class AGTagCollectorFindMyItems: AGTagCollectorProtocol {
 		return nil
 	}
 	
-	func addRecord(item: AGFindMyItem) {
+	func checkRecords(json: Array<Dictionary<String,Any>>) {
 		AGTaggyManager.shared.persistenceController.performInBackground { context in
-			
-			guard let uuid = item.identifier else {
-				self.log.warning("item \(item.name ?? "") has no identfier set, skipping")
-				return
+			for jsonItem in json {
+				let item = AGFindMyItem(json: jsonItem)
+				self.addRecord(item: item, context: context)
 			}
-			
-			var existingTag = Tag.findActiveComponent(uuid: uuid, context: context)
-			if let existingTag {
-				updateTagRecord(existingItem: existingTag, item: item)
-				self.log.info("Updated existing tag with name \(existingTag.name ?? "?")")
+
+			do {
+				try context.save()
 			}
-			else {
-				existingTag = addTagRecord(item: item, context: context)
-				self.log.info("Added new tag with name \(existingTag?.name ?? "?")")
+			catch {
+				self.log.error("Failed to items updates data to database: \(error)")
+				self.notifyStatusDelegate?.notifiyStatusMessage(message: "Failed to save updates.")
 			}
-			
-			guard let existingTag else {
-				self.log.error("Failed to add or update item \(item.name ?? "").")
-				return
-			}
-			
-			guard let timestamp = item.timestamp else {
-				self.log.warning("item \(item.name ?? "") has no timestamp set, skipping")
-				return
-			}
-			
-			var location: Location? = Location.findLocation(tag: existingTag, timestamp: timestamp, context: context)
-			if location == nil {
-				location = addLocationRecord(item: item, context: context)
-				location?.tag = existingTag
-				self.log.info("Add location with timestamp \(timestamp) \(location?.latitude ?? -1):\(location?.longitude ?? -1) to tag with name \(existingTag.name ?? "?")")
-				
-				self.notifyStatusDelegate?.notifiyStatusMessage(message: "Added location for \(existingTag.name ?? "?")")
-			}
-			else {
-				self.log.info("Location with timestamp \(timestamp) already added for tag with name \(existingTag.name ?? "?")")
-			}
-			
-			try? context.save()
-		}
-		
-		func addTagRecord(item: AGFindMyItem, context: NSManagedObjectContext) -> Tag {
-			return  Tag.add(context: context)
-				.setName(name: item.name)
-				.setEmoji(emoji: item.emojo)
-				.setUuid(uuid: item.identifier)
-		}
-		
-		func updateTagRecord(existingItem:Tag, item: AGFindMyItem) {
-			if existingItem.emoji != item.emojo {
-				existingItem.setEmoji(emoji: item.emojo)
-			}
-			if existingItem.name != item.name {
-				existingItem.setName(name: item.name)
-			}
-		}
-		
-		func addLocationRecord(item: AGFindMyItem, context: NSManagedObjectContext) -> Location {
-			
-			return Location.add(context: context)
-				.setAltitude(altitude: item.altitude)
-				.setFloor(floor: item.floor)
-				.setHorizontalAccuracy(horizontalAccuracy: item.horizontalAccuracy)
-				.setVerticalAccuracy(verticalAccuracy: item.verticalAccuracy)
-				.setLatitude(latitude: item.latitude)
-				.setLongitude(longitude: item.longitude)
-				.setTimestamp(timestamp: item.timestamp)
 		}
 	}
 	
+	func addRecord(item: AGFindMyItem, context: NSManagedObjectContext) {
+		guard let uuid = item.identifier else {
+			self.log.warning("item \(item.name ?? "") has no identfier set, skipping")
+			return
+		}
+		
+		var existingTag = Tag.findActiveComponent(uuid: uuid, context: context)
+		if let existingTag {
+			updateTagRecord(existingItem: existingTag, item: item)
+			self.log.info("Updated existing tag with name \(existingTag.name ?? "?")")
+		}
+		else {
+			existingTag = addTagRecord(item: item, context: context)
+			self.log.info("Added new tag with name \(existingTag?.name ?? "?")")
+		}
+		
+		guard let existingTag else {
+			self.log.error("Failed to add or update item \(item.name ?? "").")
+			return
+		}
+		
+		guard let timestamp = item.timestamp else {
+			self.log.warning("item \(item.name ?? "") has no timestamp set, skipping")
+			return
+		}
+		
+		var location: Location? = Location.findLocation(tag: existingTag, timestamp: timestamp, context: context)
+		if location == nil {
+			location = addLocationRecord(item: item, context: context)
+			location?.tag = existingTag
+			self.log.info("Add location with timestamp \(timestamp) \(location?.latitude ?? -1):\(location?.longitude ?? -1) to tag with name \(existingTag.name ?? "?")")
+			
+			self.notifyStatusDelegate?.notifiyStatusMessage(message: "Added location for \(existingTag.name ?? "?")")
+		}
+		else {
+			self.log.info("Location with timestamp \(timestamp) already added for tag with name \(existingTag.name ?? "?")")
+		}
+	}
+		
+	func addTagRecord(item: AGFindMyItem, context: NSManagedObjectContext) -> Tag {
+		return  Tag.add(context: context)
+			.setName(name: item.name)
+			.setEmoji(emoji: item.emojo)
+			.setUuid(uuid: item.identifier)
+	}
+	
+	func updateTagRecord(existingItem:Tag, item: AGFindMyItem) {
+		if existingItem.emoji != item.emojo {
+			existingItem.setEmoji(emoji: item.emojo)
+		}
+		if existingItem.name != item.name {
+			existingItem.setName(name: item.name)
+		}
+	}
+	
+	func addLocationRecord(item: AGFindMyItem, context: NSManagedObjectContext) -> Location {
+		return Location.add(context: context)
+			.setAltitude(altitude: item.altitude)
+			.setFloor(floor: item.floor)
+			.setHorizontalAccuracy(horizontalAccuracy: item.horizontalAccuracy)
+			.setVerticalAccuracy(verticalAccuracy: item.verticalAccuracy)
+			.setLatitude(latitude: item.latitude)
+			.setLongitude(longitude: item.longitude)
+			.setTimestamp(timestamp: item.timestamp)
+	}
 }

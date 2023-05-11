@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6107D6492A0D986600CDBFEC /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 6107D6482A0D986600CDBFEC /* Sparkle */; };
+		6107D64C2A0D9A0D00CDBFEC /* TaggyCheckForUpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6107D64B2A0D9A0D00CDBFEC /* TaggyCheckForUpdatesView.swift */; };
+		6107D64E2A0D9A4900CDBFEC /* TaggyCheckForUpdatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6107D64D2A0D9A4900CDBFEC /* TaggyCheckForUpdatesViewModel.swift */; };
 		61BABE5A2A099F3300666814 /* TaggyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE592A099F3300666814 /* TaggyApp.swift */; };
 		61BABE5C2A099F3300666814 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE5B2A099F3300666814 /* ContentView.swift */; };
 		61BABE5E2A099F3300666814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BABE5D2A099F3300666814 /* Assets.xcassets */; };
@@ -54,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6107D64B2A0D9A0D00CDBFEC /* TaggyCheckForUpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyCheckForUpdatesView.swift; sourceTree = "<group>"; };
+		6107D64D2A0D9A4900CDBFEC /* TaggyCheckForUpdatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyCheckForUpdatesViewModel.swift; sourceTree = "<group>"; };
 		61BABE562A099F3300666814 /* Taggy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taggy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BABE592A099F3300666814 /* TaggyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyApp.swift; sourceTree = "<group>"; };
 		61BABE5B2A099F3300666814 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +99,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61BABE8E2A09A51100666814 /* AGCore in Frameworks */,
+				6107D6492A0D986600CDBFEC /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6107D64A2A0D99F000CDBFEC /* CheckForUpdates */ = {
+			isa = PBXGroup;
+			children = (
+				6107D64B2A0D9A0D00CDBFEC /* TaggyCheckForUpdatesView.swift */,
+				6107D64D2A0D9A4900CDBFEC /* TaggyCheckForUpdatesViewModel.swift */,
+			);
+			path = CheckForUpdates;
+			sourceTree = "<group>";
+		};
 		61BABE4D2A099F3300666814 = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +253,7 @@
 		61FFD77A2A0C652B0096BA25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6107D64A2A0D99F000CDBFEC /* CheckForUpdates */,
 				61FFD77B2A0C65790096BA25 /* AGCommonViews.swift */,
 				61BABE5B2A099F3300666814 /* ContentView.swift */,
 				61BABEA92A0B007D00666814 /* AGLocationListView.swift */,
@@ -266,6 +282,7 @@
 			name = Taggy;
 			packageProductDependencies = (
 				61BABE8D2A09A51100666814 /* AGCore */,
+				6107D6482A0D986600CDBFEC /* Sparkle */,
 			);
 			productName = Taggy;
 			productReference = 61BABE562A099F3300666814 /* Taggy.app */;
@@ -341,6 +358,7 @@
 			mainGroup = 61BABE4D2A099F3300666814;
 			packageReferences = (
 				61BABE8C2A09A51100666814 /* XCRemoteSwiftPackageReference "AGCore" */,
+				6107D6472A0D986600CDBFEC /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			productRefGroup = 61BABE572A099F3300666814 /* Products */;
 			projectDirPath = "";
@@ -389,9 +407,11 @@
 				61BABE9B2A09C74700666814 /* Tag+CoreDataExtensions.swift in Sources */,
 				61BABE5C2A099F3300666814 /* ContentView.swift in Sources */,
 				61BABEAA2A0B007D00666814 /* AGLocationListView.swift in Sources */,
+				6107D64E2A0D9A4900CDBFEC /* TaggyCheckForUpdatesViewModel.swift in Sources */,
 				61BABE942A09AC6A00666814 /* AGTagCollectorFindMyItems.swift in Sources */,
 				61BABEA82A0AFC8A00666814 /* AGLocationViewModel.swift in Sources */,
 				61BABEB02A0B467E00666814 /* AGWelcomeView.swift in Sources */,
+				6107D64C2A0D9A0D00CDBFEC /* TaggyCheckForUpdatesView.swift in Sources */,
 				61BABE662A099F3300666814 /* Taggy.xcdatamodeld in Sources */,
 				61BABEAC2A0B15C600666814 /* AGMapView.swift in Sources */,
 				61FFD77C2A0C65790096BA25 /* AGCommonViews.swift in Sources */,
@@ -562,7 +582,7 @@
 				CODE_SIGN_ENTITLEMENTS = Taggy/Taggy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Taggy/Preview Content\"";
 				DEVELOPMENT_TEAM = 9J93HX6462;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -592,7 +612,7 @@
 				CODE_SIGN_ENTITLEMENTS = Taggy/Taggy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Taggy/Preview Content\"";
 				DEVELOPMENT_TEAM = 9J93HX6462;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -728,6 +748,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6107D6472A0D986600CDBFEC /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		61BABE8C2A09A51100666814 /* XCRemoteSwiftPackageReference "AGCore" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/antokne/AGCore";
@@ -739,6 +767,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6107D6482A0D986600CDBFEC /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6107D6472A0D986600CDBFEC /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
 		61BABE8D2A09A51100666814 /* AGCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 61BABE8C2A09A51100666814 /* XCRemoteSwiftPackageReference "AGCore" */;

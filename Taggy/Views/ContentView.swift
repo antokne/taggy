@@ -100,9 +100,23 @@ struct ContentView: View {
 	
 	private func deleteItem() {
 		if let selectedTag {
+			let index = tags.firstIndex(of: selectedTag)
+
 			viewContext.delete(selectedTag)
 			try? viewContext.save()
 			self.selectedTag = nil
+			
+			if let index, index >= 0, tags.count > 0 {
+				if index < tags.count {
+					self.selectedTag = tags[index]
+				}
+				else {
+					self.selectedTag = tags.last
+				}
+			}
+			else {
+				self.selectedTag = nil
+			}
 		}
 	}
 

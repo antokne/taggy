@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Sparkle
 
 public class AGTaggyManager {
 
@@ -15,6 +16,10 @@ public class AGTaggyManager {
 	
 	public lazy var collector: AGTagCollector = {
 		AGTagCollector.shared
+	}()
+	
+	public lazy var updateController: SPUStandardUpdaterController = {
+		SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
 	}()
 	
 	public static var shared: AGTaggyManager = AGTaggyManager()
