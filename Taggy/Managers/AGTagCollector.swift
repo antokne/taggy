@@ -26,7 +26,7 @@ protocol AGTagNotifyStatusProcotol {
 
 public class AGTagCollector {
 		
-	private var messageHandler = MessageHandler()
+	private var messageHandler: MessageHandler?
 	
 	public static let TagCollectingRateMinuteName = "TagCollectingRate"
 
@@ -40,9 +40,9 @@ public class AGTagCollector {
 
 	let collectors:[AGTagCollectorProtocol] = [AGTagCollectorFindMyItems()]
 
-	var messageTimer: Timer?
 	
 	init() {
+		self.messageHandler = MessageHandler(messageForwarder: self)
 	}
 
 	func startCollecting() -> Bool {
@@ -57,10 +57,8 @@ public class AGTagCollector {
 		}
 		else {
 			Task {
-				await messageHandler.addMessage(message: "Collecting started.")
+				await messageHandler?.addMessage(message: "Collecting started.")
 			}
-			
-			createTimer()
 		}
 		return isCollecting
 	}
@@ -72,12 +70,49 @@ public class AGTagCollector {
 			collector.stopCollectingImpl()
 		}
 		Task {
-			await messageHandler.addMessage(message: "Collecting stopped.")
+			await messageHandler?.addMessage(message: "Collecting stopped.")
 		}
 	}
+}
+
+extension AGTagCollector: AGTagNotifyStatusProcotol {
 	
-	func createTimer() {
-		messageTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { [weak self] timer in
+	func notifiyStatusMessage(message: String) {
+		Task {
+			await messageHandler?.addMessage(message:message)
+		}
+	}
+}
+
+extension AGTagCollector: AGMessageForwardMessageProtocol {
+	func formwardMessage(message: String) {
+		self.message = message
+	}
+}
+
+protocol AGMessageForwardMessageProtocol {
+	func formwardMessage(message: String)
+}
+
+private actor MessageHandler {
+
+	private var messageList: [String] = []
+
+	var messageTimer: Timer?
+	
+	private var messageForwarder: AGMessageForwardMessageProtocol
+	
+	init(messageForwarder: AGMessageForwardMessageProtocol) {
+		self.messageForwarder = messageForwarder
+	}
+	
+	func createMessageTimer() {
+
+		guard messageTimer == nil else {
+			return
+		}
+		
+		self.messageTimer = Timer(timeInterval: 2.0, repeats: true) { [weak self] timer in
 			
 			guard let self else {
 				return
@@ -87,36 +122,36 @@ public class AGTagCollector {
 				await self.processMessageStack()
 			}
 		}
-	}
-	
-	func processMessageStack() async {
-		if let nextMessage = await messageHandler.getMessage() {
-			message = nextMessage
+		
+		if let messageTimer {
+			RunLoop.main.add(messageTimer, forMode: .common)
 		}
 	}
-}
-
-extension AGTagCollector: AGTagNotifyStatusProcotol {
 	
-	func notifiyStatusMessage(message: String) {
-		Task {
-			await messageHandler.addMessage(message:message)
-		}
-	}
-}
-
-private actor MessageHandler {
-
-	private var messageList: [String] = []
-
 	func addMessage(message: String) {
+		createMessageTimer()
 		messageList.append(message)
 	}
 	
-	func getMessage() -> String? {
+	func removeNextMessage() -> String? {
 		guard !messageList.isEmpty else {
 			return ""
 		}
 		return messageList.removeFirst()
+	}
+	
+	func processMessageStack() async {
+				
+		// check for empty before we send
+		if messageList.isEmpty {
+			messageTimer?.invalidate()
+			messageTimer = nil
+		}
+
+		// send message
+		if let nextMessage = removeNextMessage() {
+			messageForwarder.formwardMessage(message: nextMessage)
+		}
+
 	}
 }
