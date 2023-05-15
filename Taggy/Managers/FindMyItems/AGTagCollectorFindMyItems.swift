@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 import CoreData
-import OSLog
+import os
 
 public class AGTagCollectorFindMyItems: AGTagCollectorProtocol {
 	

@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct AGLocationListView: View {
-	
+	@Environment(\.managedObjectContext) private var viewContext
+
+	var tag: Tag?
 	@FetchRequest var locations: FetchedResults<Location>
 	
-	@State private var selectedLocations = Set<Location.ID>()
+	@Binding var selectedLocations: [Location]
+
+	@State private var selectedLocationIds = Set<Location.ID>()
 	
 	var body: some View {
 		VStack{
-			Table(locations, selection: $selectedLocations) {
+			Table(locations, selection: $selectedLocationIds) {
 				TableColumn("Date", value: \Location.dateString)
 					.width(70)
 				TableColumn("Time", value: \Location.timeString)
@@ -24,20 +28,36 @@ struct AGLocationListView: View {
 					.width(60)
 				TableColumn("Longitude", value: \Location.longitudeString)
 					.width(60)
-				// TableColumn("Tag", value: \AGLocationData.tagName)
+			}
+			.onChange(of: selectedLocationIds) { newSelectedIds in
+				generateLocationsListFromSelected()
 			}
 			HStack {
-				Text("\(selectedLocations.count) locations selected")
+				if selectedLocationIds.count > 0 {
+					Button("Clear Selection") {
+						selectedLocationIds.removeAll()
+					}
+				}
+				Text("\(selectedLocationIds.count) locations selected")
+				Spacer()
+				if let tag {
+					Text(String(format:"%.2f  pings/hr", Location.calculatePingRate(tag: tag, context: viewContext) * 60.0 * 60.0))
+				}
 			}
 			.frame(height: 20)
-			.padding(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0))
+			.padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
 		}
+	}
+	
+	func generateLocationsListFromSelected() {
+		self.selectedLocations = locations.filter { location in selectedLocationIds.contains(where: { location.id == $0 })  }
 	}
 }
 
 struct AGLocationListView_Previews: PreviewProvider {
 	static var previews: some View {
+		@State var selectedLocations: [Location] = []
 		let fetchRequest = FetchRequest(fetchRequest: Location.sortedFetchRequest())
-		AGLocationListView(locations: fetchRequest)
+		AGLocationListView(locations: fetchRequest, selectedLocations: $selectedLocations)
 	}
 }

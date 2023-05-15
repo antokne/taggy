@@ -44,6 +44,46 @@ extension Location {
 		}
 	}
 	
+	/// Calculate the rate in count/seconds
+	/// - Parameters:
+	///   - tag: the tag to calcualte for
+	///   - context: core data context
+	/// - Returns: the rate in number/second
+	class func calculatePingRate(tag: Tag, context: NSManagedObjectContext) -> Double {
+		
+		let fetchRequest = sortedFetchRequest(tag: tag)
+		fetchRequest.fetchLimit = 100
+		
+		do {
+			let results = try context.fetch(fetchRequest)
+			guard let first = results.first?.timestamp?.timeIntervalSince1970,
+					let last = results.last?.timestamp?.timeIntervalSince1970 else {
+				return 0
+			}
+			let count = results.count
+			let diffS = last - first
+			let rate = Double(count) / diffS
+			
+			return rate
+			
+		}
+		catch {
+			return 0
+		}
+	}
+	
+	class func getLocations(locationIds: Set<Location.ID>, context: NSManagedObjectContext) -> [Location] {
+		
+		var locations: [Location] = []
+		
+		for location in locationIds {
+			let objectId = NSManagedObjectID()
+			//context.object(with: )
+		}
+		
+		return []
+	}
+	
 	@discardableResult
 	class func add(context: NSManagedObjectContext) -> Location {
 		let newLocation = Location(context: context)

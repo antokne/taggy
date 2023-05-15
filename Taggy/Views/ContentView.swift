@@ -27,6 +27,8 @@ struct ContentView: View {
 	
 	@ObservedObject var viewModel = AGContentViewModel()
 
+	@State private var selectedLocations = [Location]()
+	
 	var body: some View {
 		NavigationSplitView {
 			List(tags, selection: $selectedTag) { tag in
@@ -62,14 +64,15 @@ struct ContentView: View {
 		} content: {
 			if let selectedTag {
 				let fetchRequest = FetchRequest(fetchRequest: Location.sortedFetchRequest(tag: selectedTag))
-				AGLocationListView(locations: fetchRequest)
+				AGLocationListView(tag: selectedTag, locations: fetchRequest, selectedLocations: $selectedLocations)
 			}
 			else {
 				Text("Select a Tag")
 			}
 		} detail: {
 			if let selectedTag {
-				AGMapView(viewModel: AGMapViewModel(tag: selectedTag))
+//				AGMapView(viewModel: AGMapViewModel(tag: selectedTag, selectedLocations: selectedLocations))
+				TaggyMapWrapperView(viewModel: AGMapViewModel(tag: selectedTag, selectedLocations: selectedLocations))
 			}
 		}
 		.alert(isPresented: $showingFailedToStartAlert) {

@@ -12,12 +12,12 @@ struct AGMapView: View {
 	
 	var viewModel: AGMapViewModel
 	
-	@State var boundingRect: MKMapRect
+//	@State var boundingRect: MKMapRect
 	@State var coordinateRegion: MKCoordinateRegion
 
 	init(viewModel: AGMapViewModel) {
 		self.viewModel = viewModel
-		self.boundingRect = viewModel.boundingRect
+//		self.boundingRect = viewModel.boundingRect
 		self.coordinateRegion = viewModel.coordinateRegion
 	}
 	
@@ -34,7 +34,9 @@ struct AGMapView: View {
 		//let _ = print("self.coordinateRegion = \(self.coordinateRegion)")
 		Map(coordinateRegion: $coordinateRegion, interactionModes: .all, annotationItems: viewModel.points) { point in
 			MapAnnotation(coordinate: point.location) {
-				Circle().stroke(Color.blue)
+				Circle()
+					.stroke(viewModel.points.last == point ? Color(red: 0, green: 0, blue: 0.5) : Color.blue,
+							style: StrokeStyle(lineWidth: viewModel.points.last == point ? 2: 1))
 					.frame(width: 20, height: 20)
 			}
 		}
@@ -42,6 +44,7 @@ struct AGMapView: View {
 		HStack {
 			Button("Reset") {
 				self.coordinateRegion = viewModel.coordinateRegion
+//				self.boundingRect = viewModel.boundingRect
 			}
 			Button("+") {
 				self.coordinateRegion.span.longitudeDelta *= 0.25
@@ -58,9 +61,11 @@ struct AGMapView: View {
 				}
 				
 			}
+			Spacer()
+			Text("\(viewModel.locations.count) locations.")
 		}
 		.frame(height: 20)
-		.padding(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0))
+		.padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
 	}
 }
 
