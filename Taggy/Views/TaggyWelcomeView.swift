@@ -21,9 +21,7 @@ struct TaggyWelcomeView: View {
 					Text("1. Open settings and go into Pravicy & Security, Full Disk Access, and enable for Taggy.")
 					
 					Button("Open Settings...") {
-						if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles") {
-							NSWorkspace.shared.open(url)
-						}
+						openSystemSettings()
 					}
 					
 					Image("fulldisk access")
@@ -38,7 +36,7 @@ struct TaggyWelcomeView: View {
 					Text("2. Open Find My App.")
 					
 					Button("Open Find My...") {
-						NSWorkspace.shared.open(URL(string: "findmy://")!)
+						openFindMy()
 					}
 				}
 								

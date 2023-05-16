@@ -39,15 +39,13 @@ class AGContentViewModel: ObservableObject {
 		}
 	}
 	
-	public func playPause() {
+	public func playPause() -> Bool {
 		if AGTaggyManager.shared.collector.isCollecting {
 			AGTaggyManager.shared.collector.stopCollecting()
+			return true
 		}
-		else {
-			if !AGTaggyManager.shared.collector.startCollecting() {
-				//showingFailedToStartAlert = true
-			}
-		}
+
+		return AGTaggyManager.shared.collector.startCollecting()
 	}
 	
 	func mostRecentLocation(tag: Tag, context: NSManagedObjectContext) -> Location? {

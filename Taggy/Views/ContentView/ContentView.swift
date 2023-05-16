@@ -49,7 +49,9 @@ struct ContentView: View {
 			.navigationTitle("Tags")
 			.toolbar {
 				ToolbarItemGroup {
-					Button(action: viewModel.playPause) {
+					Button {
+						showingFailedToStartAlert = !viewModel.playPause()
+					} label: {
 						Label("", systemImage: viewModel.isCollecting ? "stop.circle.fill":  "record.circle")
 					}
 					Button(action: openFindMy) {
@@ -90,9 +92,7 @@ struct ContentView: View {
 				TaggyMapWrapperView(viewModel: AGMapViewModel(tag: selectedTag, selectedLocations: selectedLocations))
 			}
 		}
-		.alert(isPresented: $showingFailedToStartAlert) {
-			FailedToStartAlertView
-		}
+		.failedToStartAlert(isPresented: $showingFailedToStartAlert)
 		.onDeleteCommand(perform: deleteItem)
 
 	}

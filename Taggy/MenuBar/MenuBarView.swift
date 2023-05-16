@@ -14,6 +14,8 @@ struct MenuBarView: View {
 
 	@ObservedObject var viewModel: AGContentViewModel
 
+	@State private var showingFailedToStartAlert = false
+
 	@FetchRequest(
 		sortDescriptors: [NSSortDescriptor(keyPath: \Tag.name, ascending: true)],
 		animation: .default)
@@ -46,7 +48,9 @@ struct MenuBarView: View {
 			Divider()
 			
 			HStack() {
-				Button(action: viewModel.playPause) {
+				Button {
+					showingFailedToStartAlert = !viewModel.playPause()
+				} label: {
 					Label(viewModel.isCollecting ? "Stop":  "Start",
 						  systemImage: viewModel.isCollecting ? "stop.circle.fill":  "record.circle")
 				}
@@ -56,6 +60,7 @@ struct MenuBarView: View {
 				Spacer()
 			}
 		}
+		.failedToStartAlert(isPresented: $showingFailedToStartAlert)
 		.padding(5)
 	}
 		
