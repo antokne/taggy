@@ -18,6 +18,7 @@
 		6107D6622A12F37200CDBFEC /* TaggySharedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6107D6612A12F37200CDBFEC /* TaggySharedViews.swift */; };
 		6107D6652A12F7E300CDBFEC /* TaggyLoggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6107D6642A12F7E300CDBFEC /* TaggyLoggingView.swift */; };
 		6107D6672A12FC8500CDBFEC /* TaggyLoggingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6107D6662A12FC8500CDBFEC /* TaggyLoggingViewModel.swift */; };
+		61A603972A14449F004DF308 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 61A603962A14449F004DF308 /* Introspect */; };
 		61BABE5A2A099F3300666814 /* TaggyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE592A099F3300666814 /* TaggyApp.swift */; };
 		61BABE5C2A099F3300666814 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE5B2A099F3300666814 /* ContentView.swift */; };
 		61BABE5E2A099F3300666814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BABE5D2A099F3300666814 /* Assets.xcassets */; };
@@ -113,6 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61BABE8E2A09A51100666814 /* AGCore in Frameworks */,
+				61A603972A14449F004DF308 /* Introspect in Frameworks */,
 				6107D6492A0D986600CDBFEC /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +354,7 @@
 			packageProductDependencies = (
 				61BABE8D2A09A51100666814 /* AGCore */,
 				6107D6482A0D986600CDBFEC /* Sparkle */,
+				61A603962A14449F004DF308 /* Introspect */,
 			);
 			productName = Taggy;
 			productReference = 61BABE562A099F3300666814 /* Taggy.app */;
@@ -428,6 +431,7 @@
 			packageReferences = (
 				61BABE8C2A09A51100666814 /* XCRemoteSwiftPackageReference "AGCore" */,
 				6107D6472A0D986600CDBFEC /* XCRemoteSwiftPackageReference "Sparkle" */,
+				61A603952A14449F004DF308 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 61BABE572A099F3300666814 /* Products */;
 			projectDirPath = "";
@@ -658,7 +662,7 @@
 				CODE_SIGN_ENTITLEMENTS = Taggy/Taggy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"Taggy/Preview Content\"";
 				DEVELOPMENT_TEAM = 9J93HX6462;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -689,7 +693,7 @@
 				CODE_SIGN_ENTITLEMENTS = Taggy/Taggy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"Taggy/Preview Content\"";
 				DEVELOPMENT_TEAM = 9J93HX6462;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -834,6 +838,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		61A603952A14449F004DF308 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.1;
+			};
+		};
 		61BABE8C2A09A51100666814 /* XCRemoteSwiftPackageReference "AGCore" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/antokne/AGCore";
@@ -849,6 +861,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6107D6472A0D986600CDBFEC /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
+		};
+		61A603962A14449F004DF308 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61A603952A14449F004DF308 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 		61BABE8D2A09A51100666814 /* AGCore */ = {
 			isa = XCSwiftPackageProductDependency;

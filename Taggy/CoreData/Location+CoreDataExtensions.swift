@@ -12,7 +12,7 @@ import AGCore
 
 extension Location {
 	
-	class func sortedFetchRequest(tag: Tag? = nil) -> NSFetchRequest<Location> {
+	class func sortedFetchRequest(tag: Tag? = nil, ascending: Bool = true) -> NSFetchRequest<Location> {
 		let fetchRequest = NSFetchRequest<Location>(entityName: Location.className)
 		var subPredicates: [NSPredicate] = []
 		if let tag {
@@ -20,7 +20,7 @@ extension Location {
 		}
 		
 		fetchRequest.predicate = NSCompoundPredicate(type: .and, subpredicates: subPredicates)
-		let sortDescriptor = NSSortDescriptor(keyPath: \Location.timestamp, ascending: true)
+		let sortDescriptor = NSSortDescriptor(keyPath: \Location.timestamp, ascending: ascending)
 		fetchRequest.sortDescriptors = [sortDescriptor]
 		return fetchRequest
 	}

@@ -80,7 +80,7 @@ struct ContentView: View {
 			
 		} content: {
 			if let selectedTag {
-				let fetchRequest = FetchRequest(fetchRequest: Location.sortedFetchRequest(tag: selectedTag))
+				let fetchRequest = FetchRequest(fetchRequest: Location.sortedFetchRequest(tag: selectedTag, ascending: false))
 				AGLocationListView(tag: selectedTag, locations: fetchRequest, selectedLocations: $selectedLocations)
 			}
 			else {
