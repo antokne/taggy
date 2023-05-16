@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AGWelcomeView: View {
+struct TaggyWelcomeView: View {
 	@State private var showingFailedToStartAlert = false
 	var body: some View {
 		NavigationStack {
@@ -69,6 +69,6 @@ struct AGWelcomeView: View {
 
 struct AGWelcomeView_Previews: PreviewProvider {
 	static var previews: some View {
-		AGWelcomeView()
+		TaggyWelcomeView()
 	}
 }

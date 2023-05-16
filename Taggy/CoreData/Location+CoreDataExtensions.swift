@@ -25,16 +25,26 @@ extension Location {
 		return fetchRequest
 	}
 	
-	class func findLocation(tag: Tag, timestamp: Date, context: NSManagedObjectContext) -> Location? {
+	
+	/// For the location for a timestamp or newest if nil
+	/// - Parameters:
+	///   - tag: tag to find location for
+	///   - timestamp: the location for timestamp to find or nil
+	///   - context: core data context to use
+	/// - Returns: a location
+	class func findLocation(tag: Tag, timestamp: Date? = nil, context: NSManagedObjectContext) -> Location? {
 		
 		let fetchRequest = NSFetchRequest<Location>(entityName: Location.className)
 		
 		var subPredicates: [NSPredicate] = []
 
 		subPredicates.append(\Location.tag == tag)
-		subPredicates.append(\Location.timestamp == timestamp)
+		if let timestamp {
+			subPredicates.append(\Location.timestamp == timestamp)
+		}
 		fetchRequest.predicate = NSCompoundPredicate(type: .and, subpredicates: subPredicates)
-				
+		let sortDescriptor = NSSortDescriptor(keyPath: \Location.timestamp, ascending: false)
+		fetchRequest.sortDescriptors = [sortDescriptor]
 		do {
 			let result = try context.fetch(fetchRequest)
 			return result.first
@@ -70,18 +80,6 @@ extension Location {
 		catch {
 			return 0
 		}
-	}
-	
-	class func getLocations(locationIds: Set<Location.ID>, context: NSManagedObjectContext) -> [Location] {
-		
-		var locations: [Location] = []
-		
-		for location in locationIds {
-			let objectId = NSManagedObjectID()
-			//context.object(with: )
-		}
-		
-		return []
 	}
 	
 	@discardableResult

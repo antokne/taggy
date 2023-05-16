@@ -34,9 +34,11 @@ extension AGMapViewModel: MKMapViewDelegate {
 			if let annotation = annotation as? TaggyAnnotation {
 				anoView.toolTip = annotation.emoji
 			}
-//			anoView.glyphTintColor = .blue
+			
+			let lastAnnotation = annotation.coordinate == locations.last?.coordinate
+
 			anoView.image = NSImage(systemSymbolName: "circle", variableValue: 6564664, accessibilityDescription: "circle")?
-				.withSymbolConfiguration(configuration)
+				.withSymbolConfiguration(symbolConfiguration(for: lastAnnotation))
 			
 			//anoView.centerOffset = CGPoint(x: 0, y: -(anoView.image?.size.height ?? 0) / 2.0)
 		}

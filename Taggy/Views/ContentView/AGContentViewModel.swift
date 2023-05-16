@@ -18,9 +18,11 @@ class AGContentViewModel: ObservableObject {
 	var messageCancellable: AnyCancellable?
 
 	
+	
 	init() {
+
 		isCollectingCancellable = AGTaggyManager.shared.collector.$isCollecting
-			.receive(on: RunLoop.main)
+			.receive(on: DispatchQueue.main)
 			.sink { [weak self] isCollecting in
 				if self?.isCollecting != isCollecting {
 					self?.isCollecting = isCollecting
@@ -28,7 +30,7 @@ class AGContentViewModel: ObservableObject {
 			}
 
 		messageCancellable = AGTaggyManager.shared.collector.$message
-			.receive(on: RunLoop.main)
+			.receive(on: DispatchQueue.main)
 			.sink { [weak self] message in
 				
 				if self?.message != message {
@@ -36,4 +38,24 @@ class AGContentViewModel: ObservableObject {
 				}
 		}
 	}
+	
+	public func playPause() {
+		if AGTaggyManager.shared.collector.isCollecting {
+			AGTaggyManager.shared.collector.stopCollecting()
+		}
+		else {
+			if !AGTaggyManager.shared.collector.startCollecting() {
+				//showingFailedToStartAlert = true
+			}
+		}
+	}
+	
+	func mostRecentLocation(tag: Tag, context: NSManagedObjectContext) -> Location? {
+		Location.findLocation(tag: tag, context: context)
+	}
+	
+}
+
+extension NSNotification {
+	static let SelectTagNotification = Notification.Name.init("SelectTagNotification")
 }

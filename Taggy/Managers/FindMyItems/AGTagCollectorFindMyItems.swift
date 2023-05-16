@@ -53,8 +53,8 @@ public class AGTagCollectorFindMyItems: AGTagCollectorProtocol {
 			log.error("No file url")
 			return false
 		}
-		self.notifyStatusDelegate?.notifiyStatusMessage(message: "Started collecting data.")
-		
+		self.notifyStatusDelegate?.notifiyStatusMessage(message: "Started collecting data...")
+				
 		log.info("handle tag data for \(url)")
 		
 		let result = loadFileData(url: url)

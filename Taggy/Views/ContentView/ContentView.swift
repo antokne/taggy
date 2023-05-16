@@ -24,10 +24,17 @@ struct ContentView: View {
 	@State private var selectedTag: Tag?
 	@State private var mapTag: Tag?
 	@State private var showWelcomeView: Bool = false
+		
+	@ObservedObject var viewModel: AGContentViewModel
 	
-	@ObservedObject var viewModel = AGContentViewModel()
-
 	@State private var selectedLocations = [Location]()
+	
+	private var mainView = false
+	
+	init(viewModel: AGContentViewModel, mainView: Bool = false) {
+		self.viewModel = viewModel
+		self.mainView = mainView
+	}
 	
 	var body: some View {
 		NavigationSplitView {
@@ -42,15 +49,23 @@ struct ContentView: View {
 			.navigationTitle("Tags")
 			.toolbar {
 				ToolbarItemGroup {
-					Button(action: playPause) {
+					Button(action: viewModel.playPause) {
 						Label("", systemImage: viewModel.isCollecting ? "stop.circle.fill":  "record.circle")
 					}
 					Button(action: openFindMy) {
 						Text("Open FindMy...")
 					}
 					Button("?") {
-						openWelcome()
+						openWelcomeWindow(openWindow: openWindow)
 					}
+				}
+			}
+			.onReceive(NotificationCenter.default.publisher(for: NSNotification.SelectTagNotification)) { data in
+				if mainView {
+					guard let userInfo = data.userInfo, let tag = userInfo["tag"] as? Tag else {
+						return
+					}
+					selectedTag = tag
 				}
 			}
 			
@@ -82,25 +97,6 @@ struct ContentView: View {
 
 	}
 	
-	private func openFindMy() {
-		NSWorkspace.shared.open(URL(string: "findmy://")!)
-	}
-	
-	private func openWelcome() {
-		openWindow(id: "taggy-welcome-window")
-	}
-	
-	private func playPause() {
-		if AGTaggyManager.shared.collector.isCollecting {
-			AGTaggyManager.shared.collector.stopCollecting()
-		}
-		else {
-			if !AGTaggyManager.shared.collector.startCollecting() {
-				showingFailedToStartAlert = true
-			}
-		}
-	}
-	
 	private func deleteItem() {
 		if let selectedTag {
 			let index = tags.firstIndex(of: selectedTag)
@@ -127,7 +123,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
-		ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+		ContentView(viewModel: AGContentViewModel())
+			.environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 	}
 }
 

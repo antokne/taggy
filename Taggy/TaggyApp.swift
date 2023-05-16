@@ -15,10 +15,15 @@ struct TaggyApp: App {
 
 	let taggyManager = AGTaggyManager.shared
 	
+	@AppStorage(TaggyGeneralSettingsViewModel.TagShowMenuBarExtraName) private var showMenuBarExtra = true
+	@AppStorage(TaggyGeneralSettingsViewModel.TagStartRecordingOnOpenName) private var startRecordingOnOpen = false
+
+	var viewModel = AGContentViewModel()
+	
 	var body: some Scene {
 				
 		WindowGroup {
-			ContentView()
+			ContentView(viewModel: viewModel, mainView: true)
 				.environment(\.managedObjectContext, taggyManager.persistenceController.container.viewContext)
 		}
 		.onChange(of: scenePhase) { newPhase in
@@ -44,9 +49,21 @@ struct TaggyApp: App {
 			TaggyPreferencesView()
 		}
 		
-		Window("Welcome to Taggy", id: "taggy-welcome-window") {
-			AGWelcomeView()
+		Window("Welcome to Taggy", id: TaggyWelcomeWindowName) {
+			TaggyWelcomeView()
 		}
+		.keyboardShortcut("T", modifiers: [.command])
+
+		Window("Taggy Log", id: TaggyLogWindowName) {
+			TaggyLoggingView()
+		}
+		.keyboardShortcut("L", modifiers: [.command])
+		
+		MenuBarExtra("Taggy", image: "custom.tag", isInserted: $showMenuBarExtra) {
+			MenuBarView(viewModel: viewModel)
+				.environment(\.managedObjectContext, taggyManager.persistenceController.container.viewContext)
+		}
+		.menuBarExtraStyle(.window)
 	}
 	
 	private func onActive() {
@@ -55,14 +72,14 @@ struct TaggyApp: App {
 		
 		var showWelcomeScreen = AGUserDefaultBoolValue(keyName: "showWelcomeScreen")
 		if showWelcomeScreen.boolValue == false {
-			openWelcome()
+			openWelcomeWindow(openWindow: openWindow)
 			showWelcomeScreen.boolValue = true
+		}
+		
+		if startRecordingOnOpen {
+			taggyManager.collector.startCollecting()
 		}
 	}
 	
-	private func openWelcome() {
-		Task { @MainActor in
-			openWindow(id: "taggy-welcome-window")
-		}
-	}
+
 }

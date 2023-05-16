@@ -44,6 +44,7 @@ public class AGTagCollector {
 		self.messageHandler = MessageHandler(messageForwarder: self)
 	}
 
+	@discardableResult
 	func startCollecting() -> Bool {
 		isCollecting = true
 		for var collector in collectors {
@@ -56,7 +57,7 @@ public class AGTagCollector {
 		}
 		else {
 			Task {
-				await messageHandler?.addMessage(message: "Collecting started.")
+				await messageHandler?.addMessage(message: "Collecting started...")
 			}
 		}
 		return isCollecting

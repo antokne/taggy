@@ -74,18 +74,6 @@ public class AGMapViewModel: NSObject, ObservableObject {
 	}
 	
 	var coordinateRegion: MKCoordinateRegion {
-//		var union: MKMapRect? = nil
-//		for point in mapPoints {
-//			let rect = MKMapRect(origin: point, size: MKMapSize(width: 10, height: 10))
-//
-//			guard var union else {
-//				union = rect
-//				continue
-//			}
-//
-//			union = union.union(rect)
-//		}
-		
 		let unionRect = mapPoints.reduce(MKMapRect.null) { rect, point in
 			let newRect = MKMapRect(origin: point, size: MKMapSize())
 			return rect.union(newRect)
@@ -98,8 +86,17 @@ public class AGMapViewModel: NSObject, ObservableObject {
 		locationCoodinates.map { TaggyAnnotation(coordinate: $0, emoji: tag?.emoji) }
 	}
 	
-	var configuration = NSImage.SymbolConfiguration(paletteColors: [.systemBlue])
+	private var configurationBlue = NSImage.SymbolConfiguration(paletteColors: [.systemBlue])
+	private var configurationDarkBlue = NSImage.SymbolConfiguration(paletteColors: [NSColor(red: 0, green: 0, blue: 0.5, alpha: 1)])
 
+	func symbolConfiguration(for lastLocation: Bool? = false) -> NSImage.SymbolConfiguration {
+		if let lastLocation, lastLocation == true {
+			return configurationDarkBlue
+		}
+		else {
+			return configurationBlue
+		}
+	}
 }
 
 
@@ -116,4 +113,18 @@ public class TaggyAnnotation : NSObject, MKAnnotation {
 	public var title: String? {
 		nil
 	}
+}
+
+extension Location {
+	var coordinate: CLLocationCoordinate2D {
+		CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+	}
+}
+
+extension CLLocationCoordinate2D: Equatable {
+	public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+		lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+	}
+	
+	
 }
