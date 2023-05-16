@@ -10,7 +10,7 @@ import SwiftUI
 struct TaggyLoggingView: View {
 	@State var textLog: String = ""
 	
-	@ObservedObject var viewModel = TaggyLoggingViewModel()
+	@ObservedObject var viewModel: TaggyLoggingViewModel
 
 	var body: some View {
 		VStack {
@@ -28,6 +28,6 @@ struct TaggyLoggingView: View {
 
 struct TaggyLoggingView_Previews: PreviewProvider {
 	static var previews: some View {
-		TaggyLoggingView()
+		TaggyLoggingView(viewModel: TaggyLoggingViewModel())
 	}
 }

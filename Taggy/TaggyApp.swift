@@ -20,6 +20,9 @@ struct TaggyApp: App {
 
 	var viewModel = AGContentViewModel()
 	
+	// Initing the log view model here so it's not created multiple times...
+	var logViewModel = TaggyLoggingViewModel()
+	
 	var body: some Scene {
 				
 		WindowGroup {
@@ -55,7 +58,7 @@ struct TaggyApp: App {
 		.keyboardShortcut("T", modifiers: [.command])
 
 		Window("Taggy Log", id: TaggyLogWindowName) {
-			TaggyLoggingView()
+			TaggyLoggingView(viewModel: logViewModel)
 		}
 		.keyboardShortcut("L", modifiers: [.command])
 		
