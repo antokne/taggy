@@ -21,6 +21,12 @@ public class AGTagCollectorFindMyItems: AGTagCollectorProtocol {
 	
 	var collectingTimer: Timer?
 	
+	private var dateFormatter = DateFormatter()
+	
+	init() {
+		dateFormatter.dateFormat = "yyy-MM-dd HH:mm:ss"
+	}
+	
 	func startCollectingImpl(rate rateMin: Int) -> Bool {
 			
 			log.info("Creating timer with rate of \(rateMin) minute.")
@@ -134,7 +140,10 @@ public class AGTagCollectorFindMyItems: AGTagCollectorProtocol {
 			location?.tag = existingTag
 			self.log.info("Add location with timestamp \(timestamp) \(location?.latitude ?? -1):\(location?.longitude ?? -1) to tag with name \(existingTag.name ?? "?")")
 			
-			self.notifyStatusDelegate?.notifiyStatusMessage(message: "Added location for \(existingTag.name ?? "?")")
+			let date = dateFormatter.string(from: timestamp)
+			let latlng = String(format: "%.4f:%.4f", location?.latitude ?? -1, location?.longitude ?? -1)
+			
+			self.notifyStatusDelegate?.notifiyStatusMessage(message: "Added location for \(existingTag.name ?? "?") - \(date) @ \(latlng)")
 		}
 		else {
 			self.log.info("Location with timestamp \(timestamp) already added for tag with name \(existingTag.name ?? "?")")

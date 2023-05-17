@@ -24,8 +24,6 @@ public class TaggyMapView: NSView {
 
 	private var mapView: MKMapView?
 	private var statusView: StatusView?
-	
-	private var showLine: Bool = false
 
 	public func configure(with viewModel: AGMapViewModel?) {
 		self.viewModel = viewModel
@@ -68,7 +66,7 @@ public class TaggyMapView: NSView {
 		mapView.showsScale = true
 		mapView.showsCompass = true
 		
-		if showLine {
+		if viewModel.showLineOnMap {
 			mapView.addOverlay(viewModel.polyline)
 		}
 		
@@ -95,7 +93,7 @@ public class TaggyMapView: NSView {
 			return
 		}
 		
-		statusView.configureView()
+		statusView.configureView(showLineOnMap: viewModel?.showLineOnMap ?? false)
 		
 		self.addSubview(containerView)
 		containerView.createConstraints
@@ -125,7 +123,7 @@ public class TaggyMapView: NSView {
 extension TaggyMapView: TaggyMapAppDelegateProtcol {
 	
 	func showLine(show: Bool) {
-		self.showLine = show
+		self.viewModel?.showLineOnMap = show
 		configureMapView()
 	}
 	
@@ -147,7 +145,7 @@ class StatusView: NSView {
 	
 	var delegate: TaggyMapAppDelegateProtcol?
 	
-	func configureView() {
+	func configureView(showLineOnMap: Bool) {
 			
 		createViews()
 		
@@ -158,6 +156,10 @@ class StatusView: NSView {
 
 		label.stringValue = delegate?.getStatus() ?? ""
 
+		if showLineOnMap {
+			checkboxDrawLinesButton?.state = .on
+		}
+		
 	}
 	
 	func createViews() {

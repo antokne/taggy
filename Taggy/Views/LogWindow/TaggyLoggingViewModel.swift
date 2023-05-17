@@ -71,7 +71,7 @@ class TaggyLoggingViewModel: ObservableObject {
 		let dir = URL(fileURLWithFileSystemRepresentation: bundleId, isDirectory: true, relativeTo: caches.first)
 		try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
 		
-		var dateFormatter = DateFormatter()
+		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "yyy-MM-dd"
 		let dateString = dateFormatter.string(from: Date())
 		

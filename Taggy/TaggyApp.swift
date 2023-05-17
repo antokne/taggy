@@ -56,11 +56,13 @@ struct TaggyApp: App {
 			TaggyWelcomeView()
 		}
 		.keyboardShortcut("T", modifiers: [.command])
+		.defaultSize(width: 1120, height: 1300)
 
 		Window("Taggy Log", id: TaggyLogWindowName) {
 			TaggyLoggingView(viewModel: logViewModel)
 		}
 		.keyboardShortcut("L", modifiers: [.command])
+		.defaultPosition(.bottom)
 		
 		MenuBarExtra("Taggy", image: "custom.tag", isInserted: $showMenuBarExtra) {
 			MenuBarView(viewModel: viewModel)

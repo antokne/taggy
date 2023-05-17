@@ -35,7 +35,7 @@ extension AGMapViewModel: MKMapViewDelegate {
 				anoView.toolTip = annotation.emoji
 			}
 			
-			let lastAnnotation = annotation.coordinate == locations.last?.coordinate
+			let lastAnnotation = annotation.coordinate == locations.first?.coordinate
 
 			anoView.image = NSImage(systemSymbolName: "circle", variableValue: 6564664, accessibilityDescription: "circle")?
 				.withSymbolConfiguration(symbolConfiguration(for: lastAnnotation))

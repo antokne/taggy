@@ -28,6 +28,8 @@ extension IdentifiablePoint: Equatable {
 
 public class AGMapViewModel: NSObject, ObservableObject {
 	
+	@AppStorage(TaggyGeneralSettingsViewModel.TagShowLineOnMapName) var showLineOnMap = false
+
 	var tag: Tag?
 	
 	private(set) var locations: [Location] = []

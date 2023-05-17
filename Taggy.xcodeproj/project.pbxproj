@@ -18,6 +18,10 @@
 		6107D6622A12F37200CDBFEC /* TaggySharedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6107D6612A12F37200CDBFEC /* TaggySharedViews.swift */; };
 		6107D6652A12F7E300CDBFEC /* TaggyLoggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6107D6642A12F7E300CDBFEC /* TaggyLoggingView.swift */; };
 		6107D6672A12FC8500CDBFEC /* TaggyLoggingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6107D6662A12FC8500CDBFEC /* TaggyLoggingViewModel.swift */; };
+		614AEF9D2A14807D00FFF7B5 /* taggyHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AEF9C2A14807D00FFF7B5 /* taggyHelperProtocol.swift */; };
+		614AEF9F2A14807D00FFF7B5 /* taggyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AEF9E2A14807D00FFF7B5 /* taggyHelper.swift */; };
+		614AEFA12A14807D00FFF7B5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AEFA02A14807D00FFF7B5 /* main.swift */; };
+		614AEFA62A14807D00FFF7B5 /* taggyHelper.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = 614AEF9A2A14807D00FFF7B5 /* taggyHelper.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		61A603972A14449F004DF308 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 61A603962A14449F004DF308 /* Introspect */; };
 		61BABE5A2A099F3300666814 /* TaggyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE592A099F3300666814 /* TaggyApp.swift */; };
 		61BABE5C2A099F3300666814 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE5B2A099F3300666814 /* ContentView.swift */; };
@@ -48,6 +52,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		614AEFA42A14807D00FFF7B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61BABE4E2A099F3300666814 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 614AEF992A14807D00FFF7B5;
+			remoteInfo = taggyHelper;
+		};
 		61BABE6D2A099F3400666814 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 61BABE4E2A099F3300666814 /* Project object */;
@@ -64,6 +75,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		614AEFA72A14807D00FFF7B5 /* Embed XPC Services */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
+			files = (
+				614AEFA62A14807D00FFF7B5 /* taggyHelper.xpc in Embed XPC Services */,
+			);
+			name = "Embed XPC Services";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6107D64B2A0D9A0D00CDBFEC /* TaggyCheckForUpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyCheckForUpdatesView.swift; sourceTree = "<group>"; };
 		6107D64D2A0D9A4900CDBFEC /* TaggyCheckForUpdatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyCheckForUpdatesViewModel.swift; sourceTree = "<group>"; };
@@ -75,6 +100,13 @@
 		6107D6612A12F37200CDBFEC /* TaggySharedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggySharedViews.swift; sourceTree = "<group>"; };
 		6107D6642A12F7E300CDBFEC /* TaggyLoggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyLoggingView.swift; sourceTree = "<group>"; };
 		6107D6662A12FC8500CDBFEC /* TaggyLoggingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyLoggingViewModel.swift; sourceTree = "<group>"; };
+		614AEF9A2A14807D00FFF7B5 /* taggyHelper.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = taggyHelper.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		614AEF9C2A14807D00FFF7B5 /* taggyHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taggyHelperProtocol.swift; sourceTree = "<group>"; };
+		614AEF9E2A14807D00FFF7B5 /* taggyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taggyHelper.swift; sourceTree = "<group>"; };
+		614AEFA02A14807D00FFF7B5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		614AEFA22A14807D00FFF7B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		614AEFA32A14807D00FFF7B5 /* taggyHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = taggyHelper.entitlements; sourceTree = "<group>"; };
+		614AEFB22A149B6E00FFF7B5 /* AGCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AGCore; path = ../AGCore; sourceTree = "<group>"; };
 		61BABE562A099F3300666814 /* Taggy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taggy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BABE592A099F3300666814 /* TaggyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyApp.swift; sourceTree = "<group>"; };
 		61BABE5B2A099F3300666814 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,12 +135,18 @@
 		61BABEAD2A0B1A8100666814 /* AGMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGMapViewModel.swift; sourceTree = "<group>"; };
 		61BABEAF2A0B467E00666814 /* TaggyWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyWelcomeView.swift; sourceTree = "<group>"; };
 		61FFD7742A0C35730096BA25 /* TaggyPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyPreferencesView.swift; sourceTree = "<group>"; };
-		61FFD7762A0C40200096BA25 /* AGCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AGCore; path = ../AGCore; sourceTree = "<group>"; };
 		61FFD7782A0C4E8C0096BA25 /* TaggyGeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyGeneralSettingsView.swift; sourceTree = "<group>"; };
 		61FFD77D2A0C6BFC0096BA25 /* AGContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		614AEF972A14807D00FFF7B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61BABE532A099F3300666814 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -208,13 +246,26 @@
 			path = LogWindow;
 			sourceTree = "<group>";
 		};
+		614AEF9B2A14807D00FFF7B5 /* taggyHelper */ = {
+			isa = PBXGroup;
+			children = (
+				614AEF9C2A14807D00FFF7B5 /* taggyHelperProtocol.swift */,
+				614AEF9E2A14807D00FFF7B5 /* taggyHelper.swift */,
+				614AEFA02A14807D00FFF7B5 /* main.swift */,
+				614AEFA22A14807D00FFF7B5 /* Info.plist */,
+				614AEFA32A14807D00FFF7B5 /* taggyHelper.entitlements */,
+			);
+			path = taggyHelper;
+			sourceTree = "<group>";
+		};
 		61BABE4D2A099F3300666814 = {
 			isa = PBXGroup;
 			children = (
-				61FFD7762A0C40200096BA25 /* AGCore */,
+				614AEFB22A149B6E00FFF7B5 /* AGCore */,
 				61BABE582A099F3300666814 /* Taggy */,
 				61BABE6F2A099F3400666814 /* TaggyTests */,
 				61BABE792A099F3400666814 /* TaggyUITests */,
+				614AEF9B2A14807D00FFF7B5 /* taggyHelper */,
 				61BABE572A099F3300666814 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -225,6 +276,7 @@
 				61BABE562A099F3300666814 /* Taggy.app */,
 				61BABE6C2A099F3400666814 /* TaggyTests.xctest */,
 				61BABE762A099F3400666814 /* TaggyUITests.xctest */,
+				614AEF9A2A14807D00FFF7B5 /* taggyHelper.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -338,6 +390,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		614AEF992A14807D00FFF7B5 /* taggyHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 614AEFAA2A14807D00FFF7B5 /* Build configuration list for PBXNativeTarget "taggyHelper" */;
+			buildPhases = (
+				614AEF962A14807D00FFF7B5 /* Sources */,
+				614AEF972A14807D00FFF7B5 /* Frameworks */,
+				614AEF982A14807D00FFF7B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = taggyHelper;
+			productName = taggyHelper;
+			productReference = 614AEF9A2A14807D00FFF7B5 /* taggyHelper.xpc */;
+			productType = "com.apple.product-type.xpc-service";
+		};
 		61BABE552A099F3300666814 /* Taggy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61BABE802A099F3400666814 /* Build configuration list for PBXNativeTarget "Taggy" */;
@@ -345,10 +414,12 @@
 				61BABE522A099F3300666814 /* Sources */,
 				61BABE532A099F3300666814 /* Frameworks */,
 				61BABE542A099F3300666814 /* Resources */,
+				614AEFA72A14807D00FFF7B5 /* Embed XPC Services */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				614AEFA52A14807D00FFF7B5 /* PBXTargetDependency */,
 			);
 			name = Taggy;
 			packageProductDependencies = (
@@ -406,6 +477,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					614AEF992A14807D00FFF7B5 = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					61BABE552A099F3300666814 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -440,11 +514,19 @@
 				61BABE552A099F3300666814 /* Taggy */,
 				61BABE6B2A099F3400666814 /* TaggyTests */,
 				61BABE752A099F3400666814 /* TaggyUITests */,
+				614AEF992A14807D00FFF7B5 /* taggyHelper */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		614AEF982A14807D00FFF7B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61BABE542A099F3300666814 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -472,6 +554,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		614AEF962A14807D00FFF7B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				614AEF9F2A14807D00FFF7B5 /* taggyHelper.swift in Sources */,
+				614AEF9D2A14807D00FFF7B5 /* taggyHelperProtocol.swift in Sources */,
+				614AEFA12A14807D00FFF7B5 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61BABE522A099F3300666814 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -528,6 +620,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		614AEFA52A14807D00FFF7B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 614AEF992A14807D00FFF7B5 /* taggyHelper */;
+			targetProxy = 614AEFA42A14807D00FFF7B5 /* PBXContainerItemProxy */;
+		};
 		61BABE6E2A099F3400666814 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 61BABE552A099F3300666814 /* Taggy */;
@@ -541,6 +638,50 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		614AEFA82A14807D00FFF7B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = taggyHelper/taggyHelper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9J93HX6462;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = taggyHelper/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = taggyHelper;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antokne.taggyHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		614AEFA92A14807D00FFF7B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = taggyHelper/taggyHelper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9J93HX6462;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = taggyHelper/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = taggyHelper;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antokne.taggyHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		61BABE7E2A099F3400666814 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -657,6 +798,7 @@
 		61BABE812A099F3400666814 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Taggy/Taggy.entitlements;
@@ -688,6 +830,7 @@
 		61BABE822A099F3400666814 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Taggy/Taggy.entitlements;
@@ -791,6 +934,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		614AEFAA2A14807D00FFF7B5 /* Build configuration list for PBXNativeTarget "taggyHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				614AEFA82A14807D00FFF7B5 /* Debug */,
+				614AEFA92A14807D00FFF7B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		61BABE512A099F3300666814 /* Build configuration list for PBXProject "Taggy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

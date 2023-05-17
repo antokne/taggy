@@ -12,5 +12,6 @@ class TaggyGeneralSettingsViewModel {
 	
 	public static let TagStartRecordingOnOpenName = "TagStartRecordingOnOpen"
 	public static let TagShowMenuBarExtraName = "TagShowMenuBarExtra"
+	public static let TagShowLineOnMapName = "TagShowLineOnMap"
 
 }
