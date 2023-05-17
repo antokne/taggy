@@ -107,6 +107,7 @@
 		614AEFA22A14807D00FFF7B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		614AEFA32A14807D00FFF7B5 /* taggyHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = taggyHelper.entitlements; sourceTree = "<group>"; };
 		614AEFB22A149B6E00FFF7B5 /* AGCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AGCore; path = ../AGCore; sourceTree = "<group>"; };
+		614AEFB42A1580ED00FFF7B5 /* appcast.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
 		61BABE562A099F3300666814 /* Taggy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taggy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BABE592A099F3300666814 /* TaggyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyApp.swift; sourceTree = "<group>"; };
 		61BABE5B2A099F3300666814 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -258,9 +259,18 @@
 			path = taggyHelper;
 			sourceTree = "<group>";
 		};
+		614AEFB32A1580ED00FFF7B5 /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				614AEFB42A1580ED00FFF7B5 /* appcast.xml */,
+			);
+			path = docs;
+			sourceTree = "<group>";
+		};
 		61BABE4D2A099F3300666814 = {
 			isa = PBXGroup;
 			children = (
+				614AEFB32A1580ED00FFF7B5 /* docs */,
 				614AEFB22A149B6E00FFF7B5 /* AGCore */,
 				61BABE582A099F3300666814 /* Taggy */,
 				61BABE6F2A099F3400666814 /* TaggyTests */,
