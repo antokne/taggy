@@ -21,13 +21,13 @@ struct AGLocationListView: View {
 		VStack{
 			Table(locations, selection: $selectedLocationIds) {
 				TableColumn("Date", value: \Location.dateString)
-					.width(70)
+					.width(ideal: 70)
 				TableColumn("Time", value: \Location.timeString)
-					.width(50)
+					.width(ideal: 50)
 				TableColumn("Latitude", value: \Location.latitudeString)
-					.width(60)
+					.width(ideal: 60)
 				TableColumn("Longitude", value: \Location.longitudeString)
-					.width(60)
+					.width(ideal: 60)
 			}
 			.onChange(of: selectedLocationIds) { newSelectedIds in
 				generateLocationsListFromSelected()
