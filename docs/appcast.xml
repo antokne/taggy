@@ -4,11 +4,11 @@
 		<title>Taggy</title>
 		<item>
 			<title>1.0</title>
-			<pubDate>Thu, 18 May 2023 09:36:37 +1200</pubDate>
-			<sparkle:version>9</sparkle:version>
+			<pubDate>Wed, 31 May 2023 10:15:57 +1200</pubDate>
+			<sparkle:version>10</sparkle:version>
 			<sparkle:shortVersionString>1.0</sparkle:shortVersionString>
 			<sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-			<enclosure url="https://github.com/antokne/taggy/releases/download/1.0%2B9/Taggy.dmg" length="1662025" type="application/octet-stream" sparkle:edSignature="gQiAgKvo3nav088r5iVWYN3tBq7d+LeT9NCY3C2SEhAsOhxphmAyI7NGEFQ/turl4AHA0uqPISrdQ7SxvNLGBQ=="/>
+			<enclosure url="https://github.com/antokne/taggy/releases/download/1.0%2B10/Taggy.dmg" length="2235678" type="application/octet-stream" sparkle:edSignature="ap9WSNk5fj5vQ08q3U9XHmHnSX6rlStcn7ukDZX9Kazc1kXj/6UkOfY0WgWTjYlaPz68CLQ6fyIbd+JndYWFCA=="/>
 		</item>
 	</channel>
 </rss>
