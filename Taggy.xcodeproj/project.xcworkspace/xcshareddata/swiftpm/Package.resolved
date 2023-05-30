@@ -1,15 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "agcore",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/antokne/AGCore",
-      "state" : {
-        "branch" : "develop",
-        "revision" : "e59895292d4b76f0b3d8c1d3d2cc9b8244879690"
-      }
-    },
-    {
       "identity" : "sparkle",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sparkle-project/Sparkle",

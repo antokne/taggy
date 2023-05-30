@@ -18,6 +18,7 @@
 		6107D6622A12F37200CDBFEC /* TaggySharedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6107D6612A12F37200CDBFEC /* TaggySharedViews.swift */; };
 		6107D6652A12F7E300CDBFEC /* TaggyLoggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6107D6642A12F7E300CDBFEC /* TaggyLoggingView.swift */; };
 		6107D6672A12FC8500CDBFEC /* TaggyLoggingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6107D6662A12FC8500CDBFEC /* TaggyLoggingViewModel.swift */; };
+		611BAB422A26A6F7005E3D14 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 611BAB412A26A6F7005E3D14 /* Credits.rtf */; };
 		614AEF9D2A14807D00FFF7B5 /* taggyHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AEF9C2A14807D00FFF7B5 /* taggyHelperProtocol.swift */; };
 		614AEF9F2A14807D00FFF7B5 /* taggyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AEF9E2A14807D00FFF7B5 /* taggyHelper.swift */; };
 		614AEFA12A14807D00FFF7B5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AEFA02A14807D00FFF7B5 /* main.swift */; };
@@ -100,6 +101,7 @@
 		6107D6612A12F37200CDBFEC /* TaggySharedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggySharedViews.swift; sourceTree = "<group>"; };
 		6107D6642A12F7E300CDBFEC /* TaggyLoggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyLoggingView.swift; sourceTree = "<group>"; };
 		6107D6662A12FC8500CDBFEC /* TaggyLoggingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggyLoggingViewModel.swift; sourceTree = "<group>"; };
+		611BAB412A26A6F7005E3D14 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		614AEF9A2A14807D00FFF7B5 /* taggyHelper.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = taggyHelper.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		614AEF9C2A14807D00FFF7B5 /* taggyHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taggyHelperProtocol.swift; sourceTree = "<group>"; };
 		614AEF9E2A14807D00FFF7B5 /* taggyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taggyHelper.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				61BABE8B2A09A4D200666814 /* Managers */,
 				61FFD77A2A0C652B0096BA25 /* Views */,
 				61BABE982A09B51400666814 /* Info.plist */,
+				611BAB412A26A6F7005E3D14 /* Credits.rtf */,
 				61BABE5D2A099F3300666814 /* Assets.xcassets */,
 				61BABE672A099F3300666814 /* Taggy.entitlements */,
 				61BABE5F2A099F3300666814 /* Preview Content */,
@@ -543,6 +546,7 @@
 			files = (
 				61BABE612A099F3300666814 /* Preview Assets.xcassets in Resources */,
 				61BABE5E2A099F3300666814 /* Assets.xcassets in Resources */,
+				611BAB422A26A6F7005E3D14 /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,7 +819,7 @@
 				CODE_SIGN_ENTITLEMENTS = Taggy/Taggy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Taggy/Preview Content\"";
 				DEVELOPMENT_TEAM = 9J93HX6462;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -825,7 +829,7 @@
 				INFOPLIST_FILE = Taggy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Taggy;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "@2023 Antokne developement";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -849,7 +853,7 @@
 				CODE_SIGN_ENTITLEMENTS = Taggy/Taggy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Taggy/Preview Content\"";
 				DEVELOPMENT_TEAM = 9J93HX6462;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -859,7 +863,7 @@
 				INFOPLIST_FILE = Taggy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Taggy;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "@2023 Antokne developement";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
