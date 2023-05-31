@@ -88,8 +88,8 @@ public class AGMapViewModel: NSObject, ObservableObject {
 		locationCoodinates.map { TaggyAnnotation(coordinate: $0, emoji: tag?.emoji) }
 	}
 	
-	private var configurationBlue = NSImage.SymbolConfiguration(paletteColors: [.systemBlue])
-	private var configurationDarkBlue = NSImage.SymbolConfiguration(paletteColors: [NSColor(red: 0, green: 0, blue: 0.5, alpha: 1)])
+	private var configurationBlue = NSImage.SymbolConfiguration(paletteColors: [NSColor(red: 0.85, green: 0, blue: 0.0, alpha: 1)])
+	private var configurationDarkBlue = NSImage.SymbolConfiguration(paletteColors: [NSColor(red: 0.5, green: 0, blue: 0.0, alpha: 1)])
 
 	func symbolConfiguration(for lastLocation: Bool? = false) -> NSImage.SymbolConfiguration {
 		if let lastLocation, lastLocation == true {

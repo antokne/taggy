@@ -14,7 +14,7 @@ extension AGMapViewModel: MKMapViewDelegate {
 		
 		if overlay is MKPolyline {
 			let lineView = MKPolylineRenderer(overlay: overlay)
-			lineView.strokeColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+			lineView.strokeColor = NSColor.controlAccentColor
 			lineView.lineWidth = 2
 			return lineView
 		}
@@ -37,8 +37,10 @@ extension AGMapViewModel: MKMapViewDelegate {
 			
 			let lastAnnotation = annotation.coordinate == locations.first?.coordinate
 
-			anoView.image = NSImage(systemSymbolName: "circle", variableValue: 6564664, accessibilityDescription: "circle")?
+			anoView.image = NSImage(systemSymbolName: "airtag.fill", variableValue: 6564664, accessibilityDescription: "tag")?
 				.withSymbolConfiguration(symbolConfiguration(for: lastAnnotation))
+			
+			anoView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
 			
 			//anoView.centerOffset = CGPoint(x: 0, y: -(anoView.image?.size.height ?? 0) / 2.0)
 		}
