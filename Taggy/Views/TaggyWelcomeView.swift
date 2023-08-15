@@ -11,13 +11,13 @@ struct TaggyWelcomeView: View {
 	@State private var showingFailedToStartAlert = false
 	var body: some View {
 		ScrollView {
-			Text("In order for Taggy to work it needs full access to disk. Even though it only reads one file.")
+			Text("Taggy needs full disk access to be able to access the FindMy Files.")
 				.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
 			Text("")
 			Text("Please perform the following 3 steps:")
 			
 			Section {
-				Text("1. Open settings and go into Pravicy & Security, Full Disk Access, and enable for Taggy.")
+				Text("1. Open settings and go into Pravicy & Security, Full Disk Access, and enable Taggy.")
 				
 				Button("Open Settings...") {
 					openSystemSettings()
@@ -27,7 +27,7 @@ struct TaggyWelcomeView: View {
 				Image("fulldisk access")
 					.resizable()
 					.aspectRatio(contentMode: .fit)
-					.frame(width: 551, height: 300)
+					.frame(minWidth: 600)
 				
 			}
 			
