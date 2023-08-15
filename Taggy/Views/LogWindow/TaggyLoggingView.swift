@@ -6,21 +6,22 @@
 //
 
 import SwiftUI
+import SwiftUIIntrospect
 
 struct TaggyLoggingView: View {
-	@State var textLog: String = ""
 	
 	@ObservedObject var viewModel: TaggyLoggingViewModel
 
 	var body: some View {
 		VStack {
-			TextEditor(text: .constant(viewModel.textLog))
+			TextEditor(text: $viewModel.textLog)
 				.font(.monospaced(.body)())
 				.overlay {
 					Text(viewModel.textLog.isEmpty ? "Logs will appear here when enabled." : "")
 						.allowsHitTesting(false)
 				}
-			
+				.introspect(.textEditor, on: .macOS(.v11, .v12, .v13, .v14)) { textEditor in
+				}
 		}
 		.padding(3)
 	}

@@ -18,7 +18,6 @@ class TaggyLoggingViewModel: ObservableObject {
 	private var messageCancellable: AnyCancellable?
 	
 	init() {
-		loadCurrentLog()
 		messageCancellable = AGTaggyManager.shared.collector.$message
 			.receive(on: RunLoop.main)
 			.sink { [weak self] message in
