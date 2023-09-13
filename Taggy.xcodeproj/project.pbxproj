@@ -23,7 +23,6 @@
 		614AEF9F2A14807D00FFF7B5 /* taggyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AEF9E2A14807D00FFF7B5 /* taggyHelper.swift */; };
 		614AEFA12A14807D00FFF7B5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AEFA02A14807D00FFF7B5 /* main.swift */; };
 		614AEFA62A14807D00FFF7B5 /* taggyHelper.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = 614AEF9A2A14807D00FFF7B5 /* taggyHelper.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		61A603972A14449F004DF308 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 61A603962A14449F004DF308 /* Introspect */; };
 		61BABE5A2A099F3300666814 /* TaggyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE592A099F3300666814 /* TaggyApp.swift */; };
 		61BABE5C2A099F3300666814 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BABE5B2A099F3300666814 /* ContentView.swift */; };
 		61BABE5E2A099F3300666814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BABE5D2A099F3300666814 /* Assets.xcassets */; };
@@ -50,6 +49,7 @@
 		61FFD7752A0C35730096BA25 /* TaggyPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFD7742A0C35730096BA25 /* TaggyPreferencesView.swift */; };
 		61FFD7792A0C4E8C0096BA25 /* TaggyGeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFD7782A0C4E8C0096BA25 /* TaggyGeneralSettingsView.swift */; };
 		61FFD77E2A0C6BFC0096BA25 /* AGContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFD77D2A0C6BFC0096BA25 /* AGContentViewModel.swift */; };
+		E4D691DD2A8AFA92008A1D62 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = E4D691DC2A8AFA92008A1D62 /* SwiftUIIntrospect */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,8 +154,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4D691DD2A8AFA92008A1D62 /* SwiftUIIntrospect in Frameworks */,
 				61BABE8E2A09A51100666814 /* AGCore in Frameworks */,
-				61A603972A14449F004DF308 /* Introspect in Frameworks */,
 				6107D6492A0D986600CDBFEC /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,7 +438,7 @@
 			packageProductDependencies = (
 				61BABE8D2A09A51100666814 /* AGCore */,
 				6107D6482A0D986600CDBFEC /* Sparkle */,
-				61A603962A14449F004DF308 /* Introspect */,
+				E4D691DC2A8AFA92008A1D62 /* SwiftUIIntrospect */,
 			);
 			productName = Taggy;
 			productReference = 61BABE562A099F3300666814 /* Taggy.app */;
@@ -518,7 +518,7 @@
 			packageReferences = (
 				61BABE8C2A09A51100666814 /* XCRemoteSwiftPackageReference "AGCore" */,
 				6107D6472A0D986600CDBFEC /* XCRemoteSwiftPackageReference "Sparkle" */,
-				61A603952A14449F004DF308 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				E4D691DB2A8AFA92008A1D62 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 61BABE572A099F3300666814 /* Products */;
 			projectDirPath = "";
@@ -1008,20 +1008,20 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		61A603952A14449F004DF308 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.1;
-			};
-		};
 		61BABE8C2A09A51100666814 /* XCRemoteSwiftPackageReference "AGCore" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/antokne/AGCore";
 			requirement = {
 				branch = develop;
 				kind = branch;
+			};
+		};
+		E4D691DB2A8AFA92008A1D62 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1032,15 +1032,15 @@
 			package = 6107D6472A0D986600CDBFEC /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
 		};
-		61A603962A14449F004DF308 /* Introspect */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 61A603952A14449F004DF308 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
-			productName = Introspect;
-		};
 		61BABE8D2A09A51100666814 /* AGCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 61BABE8C2A09A51100666814 /* XCRemoteSwiftPackageReference "AGCore" */;
 			productName = AGCore;
+		};
+		E4D691DC2A8AFA92008A1D62 /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4D691DB2A8AFA92008A1D62 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = SwiftUIIntrospect;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sparkle-project/Sparkle",
       "state" : {
-        "revision" : "7907f058bcef1132c9b4af6c049cac598330a5f9",
-        "version" : "2.4.1"
+        "revision" : "87e4fcbac39912f9cdb9a9acf205cad60e1ca3bc",
+        "version" : "2.4.2"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/siteline/SwiftUI-Introspect",
       "state" : {
-        "revision" : "5b3f3996c7a2a84d5f4ba0e03cd7d584154778f2",
-        "version" : "0.3.1"
+        "revision" : "ccb973cfff703cba53fb88197413485c060eb26b",
+        "version" : "0.10.0"
       }
     }
   ],
